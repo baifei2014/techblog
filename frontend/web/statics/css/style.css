@@ -1,0 +1,18 @@
+.project , .date-picker{
+    padding: 5px 10px;
+    width: 240px;
+}
+input{
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #d4d4d4;
+    height: 40px;
+    border-radius: 5px;
+}
+.step{
+    width: 80px;
+    padding: 5px 10px;
+}
+input:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
