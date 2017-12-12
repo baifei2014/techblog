@@ -28,56 +28,37 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'Cloudxink',
+        'brandLabel' => '美团点评技术团队',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-jue navbar-dynamic-top',
         ],
     ]);
     $menuLeftItems = [
-        ['label' => '首页', 'url' => ['/site/index']],
-        ['label' => '专栏', 'url' => ['/site/adfrom']],
-        ['label' => '收藏集', 'url' => ['/site/layui']],
-        ['label' => '发现', 'url' => ['/order/index']],
-        ['label' => '开源库', 'url' => ['/site/contact']],
+        ['label' => '最新文章', 'url' => ['/site/index']],
+        ['label' => '文章归档', 'url' => ['/site/adfrom']],
+        ['label' => '技术沙龙', 'url' => ['/site/layui']],
+        ['label' => '关于我们', 'url' => ['/order/index']],
     ];
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-left'],
         'items' => $menuLeftItems,
     ]);
 
-    $menuSearchItems[] = '<li class="navbar-item search navbar-search">'
-            . Html::beginForm(['www.baidu.com'], 'post', ['class' => 'search-form'])
-            . Html::input('text', 'search-form', '', ['placeholder' => '搜索云思', 'class' => 'search-input'])
-            .Html::img('//gold-cdn.xitu.io/v3/static/img/juejin-search-icon.6f8ba1b.svg', ['alt' => '搜索', 'class' => 'searc-icon'])
-            . Html::endForm()
-            . '</li>';
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav'],
-        'items' => $menuSearchItems,
-    ]);
-
-    if (Yii::$app->user->isGuest) {
-        $menuRightItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuRightItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
-        $menuRightItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout']
-            )
-            . Html::endForm()
-            . '</li>';
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuRightItems,
-    ]);
+    // $menuSearchItems[] = '<li class="navbar-item search navbar-search">'
+    //         . Html::beginForm(['www.baidu.com'], 'post', ['class' => 'search-form'])
+    //         . Html::input('text', 'search-form', '', ['placeholder' => '搜索云思', 'class' => 'search-input'])
+    //         .Html::img('//gold-cdn.xitu.io/v3/static/img/juejin-search-icon.6f8ba1b.svg', ['alt' => '搜索', 'class' => 'searc-icon'])
+    //         . Html::endForm()
+    //         . '</li>';
+    // echo Nav::widget([
+    //     'options' => ['class' => 'navbar-nav'],
+    //     'items' => $menuSearchItems,
+    // ]);
     NavBar::end();
     ?>
 
-    <div class="container">
+    <div class="jue-content">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
@@ -87,11 +68,7 @@ AppAsset::register($this);
 </div>
 
 <footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
+   <div class="ft"><p>&copy; <?= date('Y') ?> 美团点评技术团队</p><p></p></div>
 </footer>
 
 <?php $this->endBody() ?>

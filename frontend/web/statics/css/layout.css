@@ -2,8 +2,9 @@ html, body{
     word-break: break-word;
 }
 .navbar-jue{
-    background: #fff;
-    border: 1px solid #e6e8eb;
+    background: #2a2935;
+    width: 180px;
+    height: 100%;
 }
 .navbar-dynamic-top{
     position: fixed;
@@ -11,13 +12,39 @@ html, body{
     left: 0;
     z-index: 1030;
 }
-.container{
-    max-width: 960px;
+.navbar{
+  border-radius: 0;
 }
 .navbar{
     min-height: 60px;
 }
-
+.collapse, .navbar-collapse{
+    width: 180px;
+    display: block;
+    position: fixed;
+    left: 0;
+    margin-top: 100px;
+    padding: 0;
+}
+.navbar-nav{
+  width: 100%;
+}
+.navbar-nav li{
+  width: 100%;
+  text-align: right;
+}
+.navbar-header{
+  position: fixed;
+  width: 180px;
+  left: 0;
+  text-align: center;
+  padding: 0;
+  background-color: #1e1d26;
+}
+a{
+  text-decoration: none;
+  color: #32d3c3;
+}
 .navbar-item{
     padding-left: 40px;
     -webkit-box-flex: 1;
@@ -57,42 +84,46 @@ html, body{
     outline: none;
 }
 .navbar-brand {
-  float: left;
-  height: 60px;
-  padding: 18px 15px;
-  font-size: 22px;
-  line-height: 25px;
+    display: block;
+    width: 100%;
+    margin-left: 15px;
+    font-size: 15px;
 }
+
 .navbar-nav > li > a {
-  padding-top: 18px;
-  padding-bottom: 17px;
-  line-height: 25px;
-  font-size: 17px;
+  padding-left: 15px;
+  line-height: 15px;
+  font-size: 16px;
+  color: #999 !important;
 }
 .navbar-jue .navbar-brand {
-  color: #007fff;
 }
 .navbar-jue .navbar-brand:hover,
 .navbar-jue .navbar-brand:focus {
-  color: #007fff;
-  background-color: transparent;
+    text-decoration: none;
+  color: #32d3c3;
 }
 .navbar-inverse .navbar-text {
   color: #9d9d9d;
+}
+.navbar-jue .navbar-nav > li{
+  border-right: 4px solid transparent;
+}
+.navbar-jue .navbar-nav > li.active {
+  border-right: 4px solid #32d3c3;
 }
 .navbar-jue .navbar-nav > li > a {
   color: #555;
 }
 .navbar-jue .navbar-nav > li > a:hover,
 .navbar-jue .navbar-nav > li > a:focus {
-  color: #007fff;
   background-color: transparent;
 }
 .navbar-jue .navbar-nav > .active > a,
 .navbar-jue .navbar-nav > .active > a:hover,
 .navbar-jue .navbar-nav > .active > a:focus {
-  color: #007fff;
-  background-color: transparent;
+  color: #32d3c3 !important;
+  background-color: #26252f;
 }
 .navbar-inverse .navbar-nav > .disabled > a,
 .navbar-inverse .navbar-nav > .disabled > a:hover,
@@ -169,4 +200,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 .xink-container{
     margin-top: 10px;
+}
+.jue-content{
+  margin-left: 180px;
+  padding:0 15px 20px;
 }
