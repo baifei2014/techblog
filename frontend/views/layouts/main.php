@@ -68,7 +68,7 @@ AppAsset::register($this);
 </div>
 
 <footer class="footer">
-   <div class="ft"><p>&copy; <?= date('Y') ?> 美团点评技术团队</p><p></p></div>
+   <div class="ft"><span>&copy; <?= date('Y') ?> 美团点评技术团队</span><br><span>All rights resiverd</span></div>
 </footer>
 
 <?php $this->endBody() ?>

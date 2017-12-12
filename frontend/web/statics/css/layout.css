@@ -202,6 +202,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
     margin-top: 10px;
 }
 .jue-content{
-  margin-left: 180px;
-  padding:0 15px 20px;
+  margin-left: 220px;
+  width: 720px;
+  border: 1px solid red;
 }
