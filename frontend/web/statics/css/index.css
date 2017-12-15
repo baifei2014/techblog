@@ -80,4 +80,8 @@
 		font-size: 12px !important;
 		color: #32d3c3 !important;
 		margin: 5px 5px 0 0;
+	}
+	.tag:hover{
+		cursor: pointer;
+	}
 }

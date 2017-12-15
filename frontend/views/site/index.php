@@ -3,7 +3,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 
 $this->title = '首页-云思技术团队';
-echo Html::cssFile('@web/statics/css/index.css');
+echo Html::cssFile('@web/frontend/web/statics/css/index.css');
 ?>
 <div class="taglk_header">
 	<span class="pull-left">最新文章</span>
