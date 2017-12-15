@@ -36,7 +36,7 @@ AppAsset::register($this);
     ]);
     $menuLeftItems = [
         ['label' => '最新文章', 'url' => ['/site/index']],
-        ['label' => '文章归档', 'url' => ['/site/adfrom']],
+        ['label' => '文章归档', 'url' => ['/site/contact']],
         ['label' => '技术沙龙', 'url' => ['/site/layui']],
         ['label' => '关于我们', 'url' => ['/order/index']],
     ];

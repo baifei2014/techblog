@@ -65,6 +65,7 @@
   }
   .jue-content{
     margin: 0 15%;
+    overflow: hidden;
   }
   .navbar-jue .navbar-menu > li{
     border-right: 4px solid transparent;
@@ -107,7 +108,7 @@
   .navbar-collapse.collapse{
   }
   .jue-content{
-    
+    overflow: hidden;
   }
   .icon-bar{
     background-color: #32d3c3 !important;

@@ -59,4 +59,25 @@
 		padding: 10px 0;
 		color: #aaa;
 	}
+	.post-abstract{
+		border-bottom: 1px dashed #ddd;
+		line-height: 23px;
+		color: #666;
+		padding: 5px 0 15px;
+		font-size: 14px;
+	}
+	.post-tags{
+		margin: 15px 0 15px;
+	}
+	.tag{
+		text-decoration: none;
+		color: #32d3c3;
+		display: inline-block;
+		border-radius: 15px;
+		border: 1px solid #32d3c3;
+		padding: 0 10px;
+		line-height: 25px;
+		font-size: 12px !important;
+		color: #32d3c3 !important;
+		margin: 5px 5px 0 0;
 }
