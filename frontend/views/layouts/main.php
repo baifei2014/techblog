@@ -28,10 +28,10 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => '美团点评技术团队',
+        'brandLabel' => '云思技术团队',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-jue navbar-dynamic-top',
+            'class' => 'navbar-jue',
         ],
     ]);
     $menuLeftItems = [
@@ -41,7 +41,7 @@ AppAsset::register($this);
         ['label' => '关于我们', 'url' => ['/order/index']],
     ];
     echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-left'],
+        'options' => ['class' => 'navbar-menu'],
         'items' => $menuLeftItems,
     ]);
 
