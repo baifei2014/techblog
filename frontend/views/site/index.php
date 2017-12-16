@@ -1,13 +1,49 @@
 <?php
-
+use yii\helpers\Html;
 /* @var $this yii\web\View */
 
-$this->title = '首页-美团点评技术团队';
+$this->title = '首页-云思技术团队';
+echo Html::cssFile('@web/frontend/web/statics/css/index.css');
 ?>
-<div class="site-index">
-    <div class="juefont-toper">
-        <div class="juefont-title">
-            <span>最新文章</span>
-        </div>
-    </div>
+<div class="taglk_header">
+	<span class="pull-left">最新文章</span>
+
+	<form class="search">
+		<input type="text" name="搜索">
+		<img class="searc-icon" src="//gold-cdn.xitu.io/v3/static/img/juejin-search-icon.6f8ba1b.svg" alt="搜索" >
+	</form>
 </div>
+<div class="post-list">
+	<div>
+        <?php foreach($articals as $artical){ ?>
+		<article class="post post-with-tags">
+			<header class="post-title">
+				<a href=""><?php echo $artical['title']; ?></a>
+			</header>
+			<div class="post-meta">
+				<span class="post-meta-author"><?php echo $artical['author']['username']; ?></span>
+				<span class="post-meta-ctime"><?php echo date('Y-m-d', $artical['created_at']) ?></span>
+			</div>
+			<p class="post-abstract"><?php echo $artical['summary']; ?></p>
+			<footer class="post-tags">
+				<a class="tag">
+					<span class="tag_name">BI</span>
+				</a>
+				<a class="tag">
+					<span class="tag_name">指标</span>
+				</a>
+				<a class="tag">
+					<span class="tag_name">逻辑树</span>
+				</a>
+				<a class="tag">
+					<span class="tag_name">酒旅</span>
+				</a>
+				<a class="tag">
+					<span class="tag_name">系统</span>
+				</a>
+			</footer>
+		</article>
+		<?php } ?>
+	</div>
+</div>
+

@@ -33,16 +33,20 @@ return [
                 ],
             ],
         ],
+        'assetManager' => [
+            'basePath' => '@webroot/frontend/web/assets',
+            'baseUrl' => '@web/frontend/web/assets'
+        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
         
         'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
+             'enablePrettyUrl' => true,
+             'showScriptName' => false,
+             'rules' => [
+             ],
+         ],
     ],
     'params' => $params,
 ];

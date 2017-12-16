@@ -28,7 +28,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => '美团点评技术团队',
+        'brandLabel' => '云思技术团队',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-jue',
@@ -36,7 +36,7 @@ AppAsset::register($this);
     ]);
     $menuLeftItems = [
         ['label' => '最新文章', 'url' => ['/site/index']],
-        ['label' => '文章归档', 'url' => ['/site/adfrom']],
+        ['label' => '文章归档', 'url' => ['/site/contact']],
         ['label' => '技术沙龙', 'url' => ['/site/layui']],
         ['label' => '关于我们', 'url' => ['/order/index']],
     ];
