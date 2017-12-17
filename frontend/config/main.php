@@ -45,6 +45,11 @@ return [
              'enablePrettyUrl' => true,
              'showScriptName' => false,
              'rules' => [
+                '/' => 'site/index',
+                '/<aid:\d+><suffix:.html|.htm>' => 'site/view',
+                '/salon' => 'site/salon',
+                '/about' => 'site/about',
+                '/achieve' => 'site/achieve',
              ],
          ],
     ],

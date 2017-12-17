@@ -10,7 +10,7 @@ echo Html::cssFile('@web/frontend/web/statics/css/index.css');
 
 	<form class="search">
 		<input type="text" name="搜索">
-		<img class="searc-icon" src="//gold-cdn.xitu.io/v3/static/img/juejin-search-icon.6f8ba1b.svg" alt="搜索" >
+		<img class="searc-icon" src="https://tech.meituan.com/img/search_icon.png" alt="搜索" >
 	</form>
 </div>
 <div class="post-list">
@@ -18,7 +18,7 @@ echo Html::cssFile('@web/frontend/web/statics/css/index.css');
         <?php foreach($articals as $artical){ ?>
 		<article class="post post-with-tags">
 			<header class="post-title">
-				<a href=""><?php echo $artical['title']; ?></a>
+				<a href="/<?php echo $artical['id'] ?>.html"><?php echo $artical['title']; ?></a>
 			</header>
 			<div class="post-meta">
 				<span class="post-meta-author"><?php echo $artical['author']['username']; ?></span>

@@ -12,6 +12,9 @@
 	line-height: 50px;
 	color: #666;
 }
+.wrap{
+	background-color: #f4f4f4;
+}
 @media (min-width: 768px) {
 	.taglk_header .search{
 		position: absolute;

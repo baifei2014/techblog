@@ -76,6 +76,44 @@ class SiteController extends Controller
         $articals = ArticalForm::getArticals();
         return $this->render('index', ['articals' => $articals]);
     }
+    /**
+     * 查看文章
+     */
+    public function actionView($aid)
+    {
+        $artical = ArticalForm::getArtical($aid);
+        return $this->render('view', ['artical' => $artical]);
+    }
+    /**
+     * Displays homepage.
+     *
+     * @return mixed
+     */
+    public function actionAchieve()
+    {
+        $articals = ArticalForm::getArticals();
+        return $this->render('achieve', ['articals' => $articals]);
+    }
+    /**
+     * Displays homepage.
+     *
+     * @return mixed
+     */
+    public function actionSalon()
+    {
+        $articals = ArticalForm::getArticals();
+        return $this->render('salon', ['articals' => $articals]);
+    }
+    /**
+     * Displays homepage.
+     *
+     * @return mixed
+     */
+    public function actionAbout()
+    {
+        $articals = ArticalForm::getArticals();
+        return $this->render('about', ['articals' => $articals]);
+    }
 
     /**
      * Logs in a user.
@@ -132,17 +170,6 @@ class SiteController extends Controller
             ]);
         }
     }
-
-    /**
-     * Displays about page.
-     *
-     * @return mixed
-     */
-    public function actionAbout()
-    {
-        return $this->render('about');
-    }
-
     /**
      * Signs user up.
      *

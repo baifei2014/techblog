@@ -1,6 +1,7 @@
 html,
 body {
     height: 100%;
+    font-family: 'Hiragino Sans GB', "Microsoft Yahei", "微软雅黑", sans-serif !important;
 }
 * {
   padding: 0;
@@ -17,7 +18,6 @@ a{
     min-height: 100%;
     height: auto;
     margin: 0 auto;
-    background-color: #f4f4f4;
 }
 
 /*.wrap > .container {
