@@ -1,0 +1,92 @@
+.jue-year{
+    margin: 0 50px;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    height: 50px;
+    display: block;
+}
+.wrap{
+    background-color: #f4f4f4;
+}
+.jue-year > .active_year{
+    border-bottom: 2px solid #32d3c3;
+    color: #666;
+    line-height: 50px;
+    cursor: pointer;
+    height: 50px;
+    display: inline-block;
+    padding: 0 5px;
+}
+.jue-year span{
+    border: none;
+    color: #666;
+    line-height: 50px;
+    cursor: pointer;
+    height: 50px;
+    display: inline-block;
+    padding: 0 5px;
+}
+.jue-year .search{
+    position: absolute;
+    right: 0;
+    border: 1px solid #dae0ef;
+    background-color: transparent;
+    display: inline-block;
+    border-radius: 15px;
+    align-items: center;
+    padding: 1px 10px;
+    height: 30px;
+    margin-top: 10px;
+}
+.jue-year .search input{
+    border: none;
+    color: #666;
+    background-color: transparent;
+    font-size: 13px;
+    padding-right: 2px;
+    width: 180px;
+    line-height: 28px;
+}
+.jue-year .search img{
+    margin-top: -3px;
+}
+.post-list{
+        margin: 5px 50px 0;
+    }
+    .post-list div{
+        flex-wrap: wrap;
+        display: flex;
+        -webkit-box-direction: normal;
+        justify-content:space-between;
+    }
+    .post{
+        background-color: #fff;
+        margin-top: 15px;
+        box-sizing: border-box;
+        border: 2px solid #fff;
+        width: calc(50% - 10px);
+        padding: 25px 30px 10px;
+    }
+    .post:hover{
+        border: 2px solid #32d3c3;
+        cursor: pointer;
+    }
+    .post-title > a{
+        color: #32d3c3 !important;
+        text-decoration: none;
+    }
+    .post-with-tags a{
+        color: #2a2935;
+        font-size: 18px;
+    }
+    .post-meta{
+        padding: 15px 0;
+        color: #aaa;
+    }
+    .post-abstract{
+        border-top: 1px dashed #ddd;
+        line-height: 23px;
+        color: #666;
+        padding: 20px 0 5px;
+        font-size: 14px;
+    }

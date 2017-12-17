@@ -91,8 +91,8 @@ class SiteController extends Controller
      */
     public function actionAchieve()
     {
-        $articals = ArticalForm::getArticals();
-        return $this->render('achieve', ['articals' => $articals]);
+        $articals = ArticalForm::getArticalsByDate();
+        return $this->render('achieve', ['year' => $articals['yearList'], 'articals' => $articals['articalList']]);
     }
     /**
      * Displays homepage.

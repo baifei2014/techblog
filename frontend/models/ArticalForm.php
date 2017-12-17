@@ -19,4 +19,25 @@ class ArticalForm extends Model{
     {
         return Artical::find()->asArray()->where(['id' => $id])->with('author')->one();
     }
+    /**
+     * 查询所有文章并按年份归档
+     */
+    public static function getArticalsByDate()
+    {
+        $articals = Artical::find()->asArray()->with('author')->orderBy('created_at desc')->all();
+        $yearList = [];
+        $articalList = [];
+        foreach ($articals as $key => $artical) {
+            $year = date('Y', $artical['created_at']);
+            if(!in_array($year, $yearList)){
+                $yearList[] = $year;
+                $articalList[$year] = [];
+            }
+            $articalList[$year][] = $artical;
+        }
+        return [
+            'yearList' => $yearList,
+            'articalList' => $articalList,
+        ];
+    }
 }

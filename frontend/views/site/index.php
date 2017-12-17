@@ -9,7 +9,7 @@ echo Html::cssFile('@web/frontend/web/statics/css/index.css');
 	<span class="pull-left">最新文章</span>
 
 	<form class="search">
-		<input type="text" name="搜索">
+		<input type="text" name="keyword">
 		<img class="searc-icon" src="https://tech.meituan.com/img/search_icon.png" alt="搜索" >
 	</form>
 </div>

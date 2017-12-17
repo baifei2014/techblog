@@ -54,6 +54,10 @@
 		width: calc(50% - 10px);
 		padding: 25px 30px 15px;
 	}
+	.post:hover{
+		border: 2px solid #32d3c3;
+		cursor: pointer;
+	}
 	.post-with-tags a{
 		color: #2a2935;
 		font-size: 18px;
