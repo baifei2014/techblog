@@ -28,7 +28,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => '云思技术团队',
+        'brandLabel' => '爱阅技术团队',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-jue',
