@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\widgets\LinkPager;
 /* @var $this yii\web\View */
 
 $this->title = '首页-爱阅技术团队';
@@ -46,4 +47,6 @@ echo Html::cssFile('@web/frontend/web/statics/css/index.css');
 		<?php } ?>
 	</div>
 </div>
-
+<?php echo LinkPager::widget([
+    'pagination' => $pagination
+]);

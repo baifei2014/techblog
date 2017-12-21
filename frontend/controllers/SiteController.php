@@ -13,6 +13,8 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\ArticalForm;
+use yii\data\Pagination;
+use common\models\Artical;
 
 /**
  * Site controller
@@ -73,8 +75,15 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $articals = ArticalForm::getArticals();
-        return $this->render('index', ['articals' => $articals]);
+        // $articals = ArticalForm::getArticals();
+        $query = Artical::find();
+        $count = $query->count();
+        $pagination = new Pagination(['totalCount' => $count]);
+        $articals = $query->offset($pagination->offset)
+                          ->limit($pagination->limit)
+                          ->orderBy('created_at desc')
+                          ->all();
+        return $this->render('index', ['articals' => $articals, 'pagination' => $pagination]);
     }
     /**
      * 查看文章
