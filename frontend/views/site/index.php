@@ -47,6 +47,9 @@ echo Html::cssFile('@web/frontend/web/statics/css/index.css');
 		<?php } ?>
 	</div>
 </div>
+<div class="page-list">
 <?php echo LinkPager::widget([
     'pagination' => $pagination
 ]);
+?>
+</div>
