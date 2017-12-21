@@ -5,6 +5,7 @@
 .post-title a{
 	color: #32d3c3;
 	font-size: 18px;
+	text-decoration: none;
 }
 @media (min-width: 768px) {
 	.taglk_header{
