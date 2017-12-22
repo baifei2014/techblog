@@ -20,8 +20,8 @@ class AccesslogForm
 	}
 	public static function getIpInfo($ip)
 	{
-		if(empty($ip)){
-			return;
+		if($ip == '127.0.0.1'){
+			return '内网IP';
 		}
 		$url = 'http://ip.taobao.com/service/getIpInfo.php?ip=' . $ip;
 
@@ -31,7 +31,12 @@ class AccesslogForm
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		$jsondata = curl_exec($ch);
 		curl_close($ch);
-		$data = json_decode($jsondata);
-		return $data;
+		$result = json_decode($jsondata, true);
+		if($result['code'] == 1){
+			return;
+		}
+		$data = $result['data'];
+		$info = $data['country'] . $data['region']. $data['city'];
+		return $info;
 	}
 }
