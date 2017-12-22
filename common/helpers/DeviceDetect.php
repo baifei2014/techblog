@@ -1,5 +1,5 @@
 <?php
-namespace alexandernst\devicedetect;
+namespace common\helpers;
 
 use Yii;
 use Detection\MobileDetect;

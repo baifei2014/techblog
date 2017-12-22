@@ -21,36 +21,6 @@ use common\models\Artical;
  */
 class SiteController extends Controller
 {
-    /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
-                'rules' => [
-                    [
-                        'actions' => ['signup'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
 
     /**
      * @inheritdoc
@@ -75,6 +45,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        // print_r(Yii::$app->params['devicedetect']['isDesktop']);die;
         // $articals = ArticalForm::getArticals();
         $query = Artical::find();
         $count = $query->count();
@@ -100,6 +71,10 @@ class SiteController extends Controller
      */
     public function actionAchieve()
     {
+        if(!Yii::$app->params['devicedetect']['isDesktop']){
+            throw new BadRequestHttpException("Error Processing Request", 1);
+            
+        }
         $articals = ArticalForm::getArticalsByDate();
         return $this->render('achieve', ['year' => $articals['yearList'], 'articals' => $articals['articalList']]);
     }

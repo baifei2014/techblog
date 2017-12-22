@@ -101,9 +101,6 @@
 	.taglk_header{
 		display: none;
 	}
-	.post-list{
-		padding: 0 10px;
-	}
 	.post-list div{
 		flex-wrap: wrap;
 		display: flex;

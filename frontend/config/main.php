@@ -52,6 +52,10 @@ return [
                 '/achieve' => 'site/achieve',
              ],
          ],
+         'devicedetect' => [
+            'class' => 'common\helpers\DeviceDetect'
+        ],
     ],
+    'bootstrap' => ['devicedetect'],
     'params' => $params,
 ];
