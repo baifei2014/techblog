@@ -5,21 +5,22 @@ namespace common\models;
 use Yii;
 
 /**
- * This is the model class for table "accesslog".
+ * This is the model class for table "uvlog".
  *
  * @property integer $id
  * @property string $ip
- * @property string $origin
+ * @property string $token
+ * @property string $device
  * @property integer $created_at
  */
-class Accesslog extends \yii\db\ActiveRecord
+class Uvlog extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'accesslog_test';
+        return 'uvlog';
     }
 
     /**
@@ -29,7 +30,9 @@ class Accesslog extends \yii\db\ActiveRecord
     {
         return [
             [['created_at'], 'integer'],
-            [['ip', 'origin'], 'string', 'max' => 255],
+            [['ip'], 'string', 'max' => 255],
+            [['token'], 'string', 'max' => 1000],
+            [['device'], 'string', 'max' => 50],
         ];
     }
 
@@ -41,7 +44,8 @@ class Accesslog extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'ip' => 'Ip',
-            'origin' => 'Origin',
+            'token' => 'Token',
+            'device' => 'Device',
             'created_at' => 'Created At',
         ];
     }
