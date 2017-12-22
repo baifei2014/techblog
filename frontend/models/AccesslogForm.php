@@ -26,7 +26,7 @@ class AccesslogForm
 		$url = 'http://ip.taobao.com/service/getIpInfo.php?ip=' . $ip;
 
 		$ch = curl_init();
-		curl_setopt($ch, , CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		$jsondata = curl_exec($ch);
