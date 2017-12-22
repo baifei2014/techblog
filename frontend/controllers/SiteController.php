@@ -21,7 +21,14 @@ use common\models\Artical;
  */
 class SiteController extends Controller
 {
-
+    public function behaviors()
+    {
+        return [
+            'accessBeavior' => [
+                'class' => 'frontend\components\AccessBehavior'
+            ],
+        ];
+    }
     /**
      * @inheritdoc
      */
