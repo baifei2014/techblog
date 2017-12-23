@@ -69,7 +69,7 @@
 @media(max-width: 768px){
 	.site-e{
 		z-index: -2 !important;
-		padding-top: 20%;
+		padding-top: 10%;
 	}
 	.site-errorimg{
 		z-index: -1;
