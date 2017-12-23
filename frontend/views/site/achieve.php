@@ -9,7 +9,6 @@ use yii\helpers\Html;
 $this->title = '文章归档 - 爱阅技术团队';
 echo Html::cssFile('frontend/web/statics/css/archieve.css');
 ?>
-<div class="jue-view">
     <div class="jue-year year-header">
         <?php foreach ($year as $key => $value) { ?>
         <span class="<?php if($key == 0){echo 'active_year'; }else{echo 'enable_year';}?>"><?php echo $value ?></span>
@@ -37,7 +36,6 @@ echo Html::cssFile('frontend/web/statics/css/archieve.css');
         </div>
     </div>
     <?php } ?>
-</div>
 <script>
 function changeShowYear(e){
     var ele = e.target;

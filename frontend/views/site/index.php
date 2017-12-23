@@ -6,7 +6,6 @@ use yii\widgets\LinkPager;
 $this->title = '首页-爱阅技术团队';
 echo Html::cssFile('@web/frontend/web/statics/css/index.css');
 ?>
-<div class="jue-view">
 	<div class="taglk_header">
 		<span class="pull-left">最新文章</span>
 
@@ -54,4 +53,3 @@ echo Html::cssFile('@web/frontend/web/statics/css/index.css');
 	]);
 	?>
 	</div>
-</div>

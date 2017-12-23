@@ -8,10 +8,11 @@
 @media(min-width: 768px){
 	.site-e{
 		padding: 0;
+		margin-right: -15%;
 	}
 	.site-errorimg{
 		width: 600px;
-		margin:  50px auto 0;
+		margin:  50px auto;
 		display: flex;
 		display: -webkit-flex;
 		flex-direction: column;
