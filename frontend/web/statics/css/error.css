@@ -67,6 +67,9 @@
 	}
 }
 @media(max-width: 768px){
+	.site-e{
+		z-index: -2 !important;
+	}
 	.site-errorimg{
 		z-index: -1;
 		width: 52rem;
@@ -120,6 +123,7 @@
 		text-decoration: none;
 		margin-top: 100px;
 		text-align: center;
+		z-index: 999;
 	}
 	.back-index:hover{
 		text-decoration: none;

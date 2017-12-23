@@ -16,6 +16,6 @@ echo Html::cssFile('@web/frontend/web/statics/css/error.css');
         <img src="/frontend/web/statics/image/panfish.9be67f5.png" class="error-ele error-fish">
         <img src="/frontend/web/statics/image/sea.892cf5d.png" class="error-ele error-sea">
         <img src="/frontend/web/statics/image/spray.bc638d2.png" class="error-ele error-spay">
-        <a href="/" class="back-index">回到首页</a>
     </div>
+    <a href="/" class="back-index">回到首页</a>
 </div>
