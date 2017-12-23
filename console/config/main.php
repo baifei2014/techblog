@@ -28,4 +28,7 @@ return [
         ],
     ],
     'params' => $params,
+    'as crawBehavior' => [
+        'class' => 'console\components\CrawBehavior'
+    ],
 ];

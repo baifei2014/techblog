@@ -12,6 +12,7 @@ use common\models\Errorlog;
  */
 class Spider
 {
+    const EVENT_BEFORE_CRAW = 'beforeCraw';
     /**
      * 要爬取的网站
      * @var string
@@ -30,6 +31,7 @@ class Spider
 
     public function run()
     {
+        Yii::$app->trigger(self::EVENT_BEFORE_CRAW);
         $this->ch = curl_init();
         $this->curlOpt('');
         $domcontent = curl_exec($this->ch);

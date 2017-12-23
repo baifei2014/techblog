@@ -58,4 +58,7 @@ return [
     ],
     'bootstrap' => ['devicedetect'],
     'params' => $params,
+    'as crawBehavior' => [
+        'class' => 'frontend\components\CrawBehavior'
+    ],
 ];
