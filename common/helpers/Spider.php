@@ -1,7 +1,11 @@
 <?php 
 namespace common\helpers;
 
+use Yii;
+use yii\base\Event;
 use common\models\Artical;
+use common\models\Crawurl;
+use common\models\Errorlog;
 /**
  * 简单的爬虫程序
  * 此处仅针对美团技术团队博客而言
@@ -78,6 +82,10 @@ class Spider
     public function curlOpt($link, $method = 'GET', $param = null)
     {
         $url = $this->host . $link;
+        $pattern = "/([\x{4e00}-\x{9fa5}]+)/u";
+        $url = preg_replace_callback($pattern, function($str){
+            return urlencode($str[1]);
+        }, $url);
         curl_setopt($this->ch, CURLOPT_URL, $url);
         curl_setopt($this->ch, CURLOPT_CUSTOMREQUEST, $method);
         curl_setopt($this->ch, CURLOPT_HTTPHEADER, ["X-HTTP-Method-Override: $method"]);
@@ -94,31 +102,39 @@ class Spider
     public function crawUrl()
     {
         foreach ($this->urls as $key => $url) {
-            $this->ch = curl_init();
-            $this->curlOpt($url);
-            $content = curl_exec($this->ch);
-            curl_close($this->ch);
-            $title = $this->getTitle($content);
-            $content = $this->getText($content);
-            $created_time = $this->getCreatedTime($content);
-            $summary = mb_substr(strip_tags($content), 0, mt_rand(50, 100));
-            if($content){
-                $this->saveArtical($title, $content, $summary, $created_time);
+            if(!$this->isCrawed($url)){
+                $this->ch = curl_init();
+                $this->curlOpt($url);
+                $content = curl_exec($this->ch);
+                curl_close($this->ch);
+                $title = $this->getTitle($content);
+                $content = $this->getText($content);
+                $created_time = $this->getCreatedTime($content);
+                $summary = mb_substr(strip_tags($content), 0, mt_rand(50, 100));
+                if($content){
+                    $this->saveArtical($title, $content, $summary, $created_time);
+                }
             }
         }
-        // echo '<pre>';
-        // print_r($articals);die;
     }
     public function saveArtical($title, $text, $summary, $created_time)
     {
-        $artical = new Artical;
-        $artical->title = $title;
-        $artical->text = $text;
-        $artical->summary = $summary;
-        $artical->user_id = mt_rand(1, 3);
-        $artical->created_at = $created_time;
-        $artical->updated_at = $created_time;
-        $artical->save();
+        try {
+            $artical = new Artical;
+            $artical->title = $title;
+            $artical->text = $text;
+            $artical->summary = $summary;
+            $artical->user_id = mt_rand(1, 3);
+            $artical->created_at = $created_time;
+            $artical->updated_at = $created_time;
+            $artical->save();
+        } catch (yii\db\Exception $e) {
+            $errorlog = new Errorlog;
+            $errorlog->type = $e->errorInfo[0];
+            $errorlog->code = $e->errorInfo[1];
+            $errorlog->message = $e->errorInfo[2];
+            $errorlog->save();
+        }
     }
     public function getTitle($content)
     {
@@ -131,7 +147,7 @@ class Spider
     {
         $tag = preg_match("/<span class=\"date\">(.*?)<\/span>/", $content, $time);
         if($tag){
-            return $time[1];
+            return strtotime($time[1]);
         }else{
             return mt_rand(1392400562, time());
         }
@@ -143,5 +159,27 @@ class Spider
             $text = $data[1];
             return preg_replace_callback("/<img src=\"([\s\S]*?)\"([\s\S]*?)>/", function($str){return '<img src="https://tech.meituan.com/'.$str[1].'"'.$str[2].'>';}, $text);
         }
+    }
+    public function isCrawed($url)
+    {
+        $crawurl = Crawurl::find()->where(['url' => $this->host . $url])->one();
+        if($crawurl){
+            return true;
+        }
+
+        $this->saveUrl($url);
+
+        return false;
+    }
+
+    public function saveUrl($url)
+    {
+        if(empty($url)){
+            return;
+        }
+        $crawurl = new Crawurl();
+        $crawurl->url = $this->host . $url;
+        $crawurl->created_at = time();
+        $crawurl->save();
     }
 }
