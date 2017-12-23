@@ -5,6 +5,9 @@
 	animation-direction:alternate;
 	-webkit-animation-direction:alternate;
 }
+.back-index{
+	width: 200px;
+}
 @media(min-width: 768px){
 	.site-e{
 		padding: 0;
@@ -59,7 +62,9 @@
 		padding: 10px 30px;
 		border-radius: 5px;
 		text-decoration: none;
+		margin: 0 auto;
 		transform: translate(0, -160%);
+		text-align: center;
 	}
 	.back-index:hover{
 		text-decoration: none;
@@ -122,9 +127,9 @@
 		padding: 10px 30px;
 		border-radius: 5px;
 		text-decoration: none;
-		margin-top: 50px;
 		text-align: center;
 		z-index: 999;
+		margin: 50px auto 0;
 	}
 	.back-index:hover{
 		text-decoration: none;
