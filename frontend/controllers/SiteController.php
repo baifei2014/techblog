@@ -13,6 +13,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\ArticalForm;
+use common\helpers\Spider;
 
 /**
  * Site controller
@@ -75,6 +76,11 @@ class SiteController extends Controller
     {
         $articals = ArticalForm::getArticals();
         return $this->render('index', ['articals' => $articals]);
+    }
+    public function actionCraw()
+    {
+        $spider = new Spider;
+        $spider->run();
     }
     /**
      * 查看文章
