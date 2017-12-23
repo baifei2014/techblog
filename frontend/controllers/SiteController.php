@@ -13,44 +13,22 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\ArticalForm;
-use common\helpers\Spider;
+use yii\data\Pagination;
+use common\models\Artical;
 
 /**
  * Site controller
  */
 class SiteController extends Controller
 {
-    /**
-     * @inheritdoc
-     */
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
-                'rules' => [
-                    [
-                        'actions' => ['signup'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
+            'accessBeavior' => [
+                'class' => 'frontend\components\AccessBehavior'
             ],
         ];
     }
-
     /**
      * @inheritdoc
      */
@@ -74,8 +52,18 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $articals = ArticalForm::getArticals();
-        return $this->render('index', ['articals' => $articals]);
+        echo '<pre>';
+        print_r($_COOKIE);die;
+        // print_r(Yii::$app->params['devicedetect']['isDesktop']);die;
+        // $articals = ArticalForm::getArticals();
+        $query = Artical::find();
+        $count = $query->count();
+        $pagination = new Pagination(['totalCount' => $count]);
+        $articals = $query->offset($pagination->offset)
+                          ->limit($pagination->limit)
+                          ->orderBy('created_at desc')
+                          ->all();
+        return $this->render('index', ['articals' => $articals, 'pagination' => $pagination]);
     }
     public function actionCraw()
     {
@@ -97,6 +85,10 @@ class SiteController extends Controller
      */
     public function actionAchieve()
     {
+        if(!Yii::$app->params['devicedetect']['isDesktop']){
+            throw new BadRequestHttpException("Error Processing Request", 1);
+            
+        }
         $articals = ArticalForm::getArticalsByDate();
         return $this->render('achieve', ['year' => $articals['yearList'], 'articals' => $articals['articalList']]);
     }

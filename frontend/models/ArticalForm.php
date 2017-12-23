@@ -10,7 +10,7 @@ class ArticalForm extends Model{
      */
 	public static function getArticals()
     {
-		return Artical::find()->asArray()->orderBy('id desc')->with('author')->all();
+		return Artical::find()->asArray()->orderBy('created_at desc')->with('author')->all();
 	}
     /**
      * 根据文章id查询单个文章

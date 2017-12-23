@@ -39,6 +39,44 @@
         font-weight: bold;
     }
 }
-@media (min-width: 768px) {
-    
+@media (max-width: 768px) {
+    .post-detail{
+        width: 100%;
+        margin: 0 auto;
+    }
+    .detail-post{
+        margin-top: 40px;
+    }
+    .artical-title{
+        text-align: center;
+        border-bottom: 1px solid #999;
+        padding-bottom: 15px;
+    }
+    .title{
+        color: #2a2935;
+        font-size: 1.7rem;
+        font-weight: 600;
+    }
+    img{
+        max-width: 100%;
+    }
+    .info{
+        color: #999;
+        margin-top: 15px;
+        font-size: 12px;
+    }
+    .artical-content{
+        line-height: 25px;
+        color: #444;
+        word-break: normal;
+        padding: 20px 0;
+    }
+    .artical-content h1{
+        font-size: 1.6em;
+        font-weight: bold;
+    }
+    .artical-content h2{
+        font-size: 1.45em;
+        font-weight: bold;
+    } 
 }

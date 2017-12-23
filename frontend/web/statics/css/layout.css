@@ -65,7 +65,6 @@
   }
   .jue-content{
     margin: 0 15%;
-    overflow: hidden;
   }
   .navbar-jue .navbar-menu > li{
     border-right: 4px solid transparent;
@@ -109,12 +108,12 @@
     height: 1px !important;
     line-height: 10px;
   }
-  .navbar-collapse.collapse{
+  .navbar-collapse{
     position: fixed;
     width: 100%;
     margin: 0 !important;
     left: 0;
-    top: 0;
+    top: 50px;
     font-size: 15px;
     padding: 0;
   }
@@ -126,13 +125,18 @@
     margin-right: 5px !important;
   }
   .navbar-menu{
-    margin: 0 -15px;
+    margin: 0;
     background-color: #fff;
   }
-  .navbar-collapse.collapse{
+  .navbar-menu > li:nth-child(2){
+    display: none;
   }
+  .navbar-menu > li:nth-child(3){
+    display: none;
+  }
+
   .jue-content{
-    overflow: hidden;
+    padding: 0 15px;
   }
   .icon-bar{
     background-color: #32d3c3 !important;
