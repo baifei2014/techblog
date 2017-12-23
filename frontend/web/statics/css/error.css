@@ -5,40 +5,42 @@
 	animation-direction:alternate;
 	-webkit-animation-direction:alternate;
 }
-@keyframes mymove
-{
-	from {top:38%;}
-	to {top:35%;}
-}
-
-@-webkit-keyframes mymove /*Safari and Chrome*/
-{
-	from {top:38%;}
-	to {top:35%;}
-}
 @media(min-width: 768px){
+	.site-e{
+		padding: 0;
+	}
 	.site-errorimg{
 		width: 600px;
-		margin: 40px 50px 0;
+		margin:  50px auto 0;
 		display: flex;
 		display: -webkit-flex;
 		flex-direction: column;
 		align-items: center;
 		padding: 0;
+		position: relative;
 	}
 	.error-back{
 		width: 76%;
-		position: inherit;
 	}
 	.error-fish{
-		width: 12%;
+		width: 20%;
 		position: absolute;
-		top: 38%;
+		top: 35%;
+	}
+	@keyframes mymove
+	{
+		from {top:35%;}
+		to {top:32%;}
+	}
+
+	@-webkit-keyframes mymove /*Safari and Chrome*/
+	{
+		from {top:35%;}
+		to {top:32%;}
 	}
 	.error-sea{
 		width: 99%;
 		opacity: .7;
-		position: inherit;
 		transform: translate(0, -17%);
 	}
 	.error-spay{
@@ -66,32 +68,46 @@
 @media(max-width: 768px){
 	.site-errorimg{
 		z-index: -1;
-		width: 100%;
-		margin: 30px 0 20px;
+		width: 52rem;
+		max-width: 73%;
+		margin: 0 auto;
 		position: relative;
-		display: flex;
-		display: -webkit-flex;
-		flex-direction: column;
-		align-items: center;
+		padding-top: 48%;
+	}
+	.site-errorimg > .error-ele{
+		position: absolute;
+		top: 35%;
+		left: 50%;
 	}
 	.error-back{
 		width: 76%;
-		position: inherit;
+		transform: translate(-50%, -50%);
 	}
 	.error-fish{
 		width: 20.994%;
 		position: absolute;
-		top: 32%;
+		transform: translate(-50%, 36%);
+	}
+	@keyframes mymove
+	{
+		from {top:36%;}
+		to {top:32%;}
+	}
+
+	@-webkit-keyframes mymove /*Safari and Chrome*/
+	{
+		from {top:36%;}
+		to {top:32%;}
 	}
 	.error-sea{
 		width: 99%;
 		opacity: .7;
-		transform: translate(0, -18%);
+		transform: translate(-50%, 72%);
 	}
 	.error-spay{
 		width: 40%;
 		opacity: .4;
-		transform: translate(0, -200%);
+		transform: translate(-50%, 160%);
 	}
 	.back-index{
 		background-color: #007fff;
@@ -101,7 +117,8 @@
 		padding: 10px 30px;
 		border-radius: 5px;
 		text-decoration: none;
-		margin-top: 20px;
+		margin-top: 50px;
+		text-align: center;
 	}
 	.back-index:hover{
 		text-decoration: none;

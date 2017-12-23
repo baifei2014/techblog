@@ -5,6 +5,7 @@
 use yii\helpers\Html;
 
 $this->title = 'About';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
-
+<div class="jue-view">
+    <?php $this->params['breadcrumbs'][] = $this->title;?>
+</div>
