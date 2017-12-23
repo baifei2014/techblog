@@ -52,10 +52,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        echo '<pre>';
-        print_r($_COOKIE);die;
         // print_r(Yii::$app->params['devicedetect']['isDesktop']);die;
-        // $articals = ArticalForm::getArticals();
         $query = Artical::find();
         $count = $query->count();
         $pagination = new Pagination(['totalCount' => $count]);
