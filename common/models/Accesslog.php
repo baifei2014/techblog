@@ -19,7 +19,7 @@ class Accesslog extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'accesslog_test';
+        return 'accesslog';
     }
 
     /**
