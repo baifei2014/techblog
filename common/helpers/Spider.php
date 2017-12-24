@@ -112,7 +112,7 @@ class Spider
                 $title = $this->getTitle($content);
                 $text = $this->getText($content);
                 $created_time = $this->getCreatedTime($content);
-                $summary = mb_substr(strip_tags($content), 0, mt_rand(50, 100));
+                $summary = mb_substr(strip_tags($text), 0, mt_rand(50, 100));
                 if($content){
                     $this->saveArtical($title, $text, $summary, $created_time);
                 }
