@@ -62,11 +62,6 @@ class SiteController extends Controller
                           ->all();
         return $this->render('index', ['articals' => $articals, 'pagination' => $pagination]);
     }
-    public function actionCraw()
-    {
-        $spider = new Spider;
-        $spider->run();
-    }
     /**
      * 查看文章
      */

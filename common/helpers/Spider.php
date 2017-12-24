@@ -110,11 +110,11 @@ class Spider
                 $content = curl_exec($this->ch);
                 curl_close($this->ch);
                 $title = $this->getTitle($content);
-                $content = $this->getText($content);
+                $text = $this->getText($content);
                 $created_time = $this->getCreatedTime($content);
                 $summary = mb_substr(strip_tags($content), 0, mt_rand(50, 100));
                 if($content){
-                    $this->saveArtical($title, $content, $summary, $created_time);
+                    $this->saveArtical($title, $text, $summary, $created_time);
                 }
             }
         }
