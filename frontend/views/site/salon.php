@@ -5,7 +5,7 @@
 use yii\helpers\Html;
 
 $this->title = '技术沙龙-爱阅技术团队';
-echo Html::cssFile('@web/frontend/web/statics/css/about.css');
+echo Html::cssFile('@web/frontend/web/statics/css/salon.css');
 ?>
 <div class="post-detail">
     <div class="detail-post">
@@ -14,18 +14,28 @@ echo Html::cssFile('@web/frontend/web/statics/css/about.css');
         </header>
         <div class="artical-content">
             <div class="jue-aboutart">
-                <p class="about-title">明月上高楼</p>
-                <p class="about-author">曹植</p>
-                <p>明月照高楼，流光正徘徊。上有愁思妇，悲叹有余哀。</p>
-
-                <p>借问叹者谁，言是客子妻。君行逾十年，孤妾常独栖。</p>
-
-                <p>君若清路尘，妾若浊水泥；浮沉各异势，会合何时谐。</p>
-
-                <p>愿为西南风，长逝入君怀。君怀良不开，贱妾当何依。</p>
+                <span class="select-img">点击选择图片</span>
+                <ul class="jue-imglists" >
+                </ul>
             </div>
         </div>
-        <code>声明：本章所有技术文章均采集自美团点评技术团队博客</code>
     </div>
 </div>
-
+<div class="pop-bd"></div>
+<script type="text/javascript">
+    window.onload = function(){
+        if($('.jue-imglists').find('li').length > 0){
+            $('.jue-imglists').css('border', '2px solid #32d3c3');
+        }
+        $('.select-img').click(function(){
+            $('.pop-bd').css('display','block');
+            $('.detail-post').append('<div class="pop-wrap"></div>');
+            $('.pop-wrap').append('<div class="popwrap-header"></div>');
+            $('.pop-wrap').append('<div class="popwrap-inner"></div>');
+            $('.pop-wrap').append('<div class="popwrap-fd"></div>');
+            $('.popwrap-header').append('<span class="check-img">本地上传</span><button class="jue-desktop-dialog close-btn"><svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg"><path d="M10.01 8.996l7.922-7.922c.086-.086.085-.21.008-.289l-.73-.73c-.075-.074-.208-.075-.29.007L9 7.984 1.077.062C.995-.02.863-.019.788.055l-.73.73c-.078.078-.079.203.007.29l7.922 7.92-7.922 7.922c-.086.086-.085.212-.007.29l.73.73c.075.074.207.074.29-.008l7.92-7.921 7.922 7.921c.082.082.215.082.29.008l.73-.73c.077-.078.078-.204-.008-.29l-7.921-7.921z"></path></svg></button>');
+            $('.popwrap-inner').append('<div class="popwrap-inner-hd"><span class="popupload-img upload-btn">本地上传</span></div><ul class="popwrap-img-lists"></ul>');
+            $('.popwrap-img-lists').append('<li><img class="img-list" src="/frontend/web/files/706402745.jpg"></li><li><img src="/frontend/web/files/706402745.jpg"></li><li><img src="/frontend/web/files/webwxgetmsgimg-8.jpg"></li><li><img src="/frontend/web/files/webwxgetmsgimg-12.jpg"></li><li><img src="/frontend/web/files/"></li><li><img src="/frontend/web/files/846870065.jpg"></li>')
+        });
+    }
+</script>
