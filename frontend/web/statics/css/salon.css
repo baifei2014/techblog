@@ -21,7 +21,7 @@
         font-size: 3.2rem;
         font-weight: 600;
     }
-    img{
+    .post-detail > img{
         max-width: 100%;
     }
     .info{
@@ -64,7 +64,7 @@
         font-size: 1.7rem;
         font-weight: 600;
     }
-    img{
+    .post-detail > img{
         max-width: 100%;
     }
     .info{
@@ -89,7 +89,7 @@
 }
 
 .pop-bd{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
@@ -98,8 +98,8 @@
     height: 100%;
     display: none;
     z-index: 999;
-    background-color: #000;
-    opacity: .7;
+    background-color: #333;
+    opacity: .4;
 }
 .select-img{
     background-color: #00b7ee;
@@ -169,12 +169,12 @@
     overflow: visible;
     padding: 0 22px;
     height: 32px;
-    line-height: 29px;
+    line-height:30px;
     vertical-align: middle;
     text-align: center;
     text-decoration: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px;
     border-width: 1px;
     border-style: solid;
     cursor: pointer;
@@ -183,26 +183,51 @@
 .popwrap-img-lists{
     list-style: none;
     display: flex;
-    border: 1px solid red;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 15px 15px;
+    align-items: center;
+    padding: 0 10px;
+    border: 1px solid red;
+    margin-bottom: 30px;
+    position: relative;
 }
 .popwrap-img-lists > li{
-    width: 122px !important;
-    height: 122px !important;
+    width: 124px;
+    margin-top: 12px;
+    padding: 0;
+    position: relative;
+    float: left;
+    text-align: center;
+}
+.popwrap-img-lists > li> label{
+    position: relative; 
+    border: 1px solid #e7e7eb; 
+    width: 124px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.jue_pic{
+    width: 124px;
+    height: 124px;
     overflow: hidden;
     position: relative;
-    border: 1px solid red;
+    border-bottom: 1px solid #e7e7eb; 
 }
-.popwrap-img-lists > li > img{
-    height: 122px !important;
+.popwrap-img-lists > li > label > .jue_pic > img{
     position: absolute;
-    display: block;
     top: 50%;
     left: 50%;
-    max-width: 100%;
-    max-height: 100%;
-    background-size: contain;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
+}
+span.jueimg_name{
+    height: 32px;
+    line-height: 30px;
+    padding: 0 9px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    font-weight: 500;
 }

@@ -1,3 +1,10 @@
+ul {
+    list-style-position: inside;
+    list-style-type:upper-roman;
+}
+ol {
+    list-style-position: inside;
+}
 @media (min-width: 1080px) {
     .post-detail{
         width: 700px;
