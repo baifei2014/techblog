@@ -182,8 +182,27 @@
 }
 .popwrap-img-lists{
     list-style: none;
+    display: flex;
+    border: 1px solid red;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 15px 15px;
+}
+.popwrap-img-lists > li{
+    width: 122px !important;
+    height: 122px !important;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid red;
 }
 .popwrap-img-lists > li > img{
-    width: 120px !important;
-    height: 120px !important;
+    height: 122px !important;
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    max-width: 100%;
+    max-height: 100%;
+    background-size: contain;
+    transform: translate(-50%,-50%);
 }
