@@ -184,20 +184,23 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px;
-    border: 1px solid red;
+    padding: 0 10px 7px;
     margin-bottom: 30px;
     position: relative;
+    height: 359px;
+    overflow: auto;
+    justify-content: flex-start;
+    align-content: flex-start;
+    border-bottom: 1px solid #e7e7eb; 
 }
 .popwrap-img-lists > li{
     width: 124px;
-    margin-top: 12px;
     padding: 0;
     position: relative;
     float: left;
     text-align: center;
+    margin-top: 10px;
+    margin: 10px 4px 0;
 }
 .popwrap-img-lists > li> label{
     position: relative; 
@@ -206,6 +209,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
+    cursor: pointer;
 }
 .jue_pic{
     width: 124px;
@@ -222,7 +226,7 @@
 }
 span.jueimg_name{
     height: 32px;
-    line-height: 30px;
+    line-height: 32px;
     padding: 0 9px;
     display: block;
     overflow: hidden;
@@ -230,4 +234,103 @@ span.jueimg_name{
     text-overflow: ellipsis;
     font-size: 14px;
     font-weight: 500;
+}
+::-webkit-scrollbar  
+{  
+    width: 6px;  
+    height: 8px;  
+    background-color: #fff;  
+}  
+  
+/*定义滚动条轨道 内阴影+圆角*/  
+::-webkit-scrollbar-track  
+{  
+    background-color: #fff;  
+}  
+  
+/*定义滑块 内阴影+圆角*/  
+::-webkit-scrollbar-thumb  
+{  
+    -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,.3);  
+    background-color: #e6e8eb;  
+} 
+.juepopwrap-ft-desc{
+    position: absolute;
+    bottom: -80px;
+    left: 30px;
+}
+.popwrap-fd{
+    background-color: transparent;
+    padding: 0;
+    line-height: 100px;
+    position: relative;
+    margin: 0;
+    text-align: center;
+    margin-top: -30px;
+}
+.popwrap-fd .btn{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.btn button{
+    display: block;
+    height: 100%;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    overflow: visible;
+    padding: 0 22px;
+}
+.btn-default button{
+    color: #222;
+    width: 100%;
+}
+.js-btn{
+    background: none
+    border:none;
+    outline: none;
+}
+.btn-disabled{
+    background-color: #e7e7eb !important;
+    border-color: #dadbe0 !important;
+    color: #a5a6aa !important;
+    cursor: default !important;
+}
+.btn-primary{
+    background-color: #44b549;
+    border-color: #44b549;
+    color: #fff;
+}
+.btn-primary:hover{
+    background-color: #228B22;
+    border-color: #228B22;
+    color: #fff;
+}
+.btn-default:hover{
+    background-color: #e6e8eb;
+    border-color: #d4d4d4;
+}
+.img-item-bd.selected .selected_mask{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.img-item-bd.selected .selected_mask_inner{
+    height: 124px;
+    width: 124px;
+    opacity: .6;
+    background-color: #000;
+}
+.img-item-bd.selected .selected_mask-icon{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent url(/frontend/web/statics/image/icon_card_selected3a7b38.png) no-repeat 0 0;
+    width: 124px;
+    height: 124px;
+    vertical-align: middle;
+    display: inline-block;
+    background-position: 50% 50%;
 }
