@@ -113,13 +113,15 @@
 .jue-imglists{
     position: relative;
     list-style: none;
+    margin-top: 20px;
 }
 .pop-wrap{
     position: fixed;
-    top: 3%;
+    top: 50%;
     bottom: 3%;
     width: 686px;
-    height: 94%;
+    height: 540px;
+    margin-top: -270px;
     left: 50%;
     margin-left: -369px;
     background-color: #fff;
@@ -134,7 +136,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding:  0 20px;
+    padding:  10px 20px 0;
 }
 .popwrap-header .check-img{
     font-size: 16px;
@@ -192,6 +194,7 @@
     justify-content: flex-start;
     align-content: flex-start;
     border-bottom: 1px solid #e7e7eb; 
+    z-index: 1000;
 }
 .popwrap-img-lists > li{
     width: 124px;
@@ -210,6 +213,7 @@
     padding: 0;
     overflow: hidden;
     cursor: pointer;
+    display: inline-block;
 }
 .jue_pic{
     width: 124px;
@@ -256,34 +260,36 @@ span.jueimg_name{
 } 
 .juepopwrap-ft-desc{
     position: absolute;
-    bottom: -80px;
-    left: 30px;
+    bottom: -70px;
+    left: 20px;
 }
 .popwrap-fd{
     background-color: transparent;
     padding: 0;
-    line-height: 100px;
+    line-height: 75px;
     position: relative;
     margin: 0;
     text-align: center;
     margin-top: -30px;
 }
-.popwrap-fd .btn{
+.popwrap-fd .btn-input{
     margin-left: 10px;
     margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0;
+    height: 35px;
+    line-height: 33px;
 }
-.btn button{
+.btn-input button{
     display: block;
-    height: 100%;
     background-color: transparent;
     border: 0;
     outline: 0;
-    overflow: visible;
-    padding: 0 22px;
-}
-.btn-default button{
-    color: #222;
+    height: 100%;
     width: 100%;
+    overflow: visible;
+    padding: 0 30px;
 }
 .js-btn{
     background: none
@@ -305,6 +311,16 @@ span.jueimg_name{
     background-color: #228B22;
     border-color: #228B22;
     color: #fff;
+}
+.btn-primary:focus {
+    background-color: #228B22 !important;
+    border-color: #228B22 !important;
+    color: #fff !important;
+}
+.btn-primary:active {
+    background-color: #006400 !important;
+    border-color: #006400 !important;
+    color: #fff !important;
 }
 .btn-default:hover{
     background-color: #e6e8eb;
@@ -333,4 +349,35 @@ span.jueimg_name{
     vertical-align: middle;
     display: inline-block;
     background-position: 50% 50%;
+}
+
+.jue-imglist{
+    border: 2px dashed #D6D6D6;
+    padding: 10px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    display: flex;
+    -webkit-box-direction: normal;
+    justify-content:space-between;
+}
+.jue-imglist > li{
+    width: calc(50% - 10px);
+    border: 1px solid red;
+}
+.jue-imglist > li > img{
+    width: 100%;
+    border: 1px solid #E8E8E8;
+}
+
+.jue-checktech{
+    margin-top: 30px;
+}
+.juestart-testimg{
+    background-color: #00b7ee;
+    padding: 8px 20px 10px;
+    color: #fff;
+    font-size: 18px;
+    margin-top: 50px;
+    border-radius: 5px;
+    cursor: pointer;
 }

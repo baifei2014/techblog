@@ -15,6 +15,7 @@ use frontend\models\ContactForm;
 use frontend\models\ArticalForm;
 use yii\data\Pagination;
 use common\models\Artical;
+use common\models\Material;
 
 /**
  * Site controller
@@ -69,6 +70,93 @@ class SiteController extends Controller
     {
         $artical = ArticalForm::getArtical($aid);
         return $this->render('view', ['artical' => $artical]);
+    }
+    public function actionUploadimg()
+    {
+        $imginfo = Yii::$app->request->post();
+        if(!$imginfo){
+            $result = [
+                'status' => 0,
+                'message' => '上传失败',
+            ];
+            return json_encode($result);
+        }
+        $tag = preg_match('/^data[\s\S]*,([\s\S]*)/', $imginfo['code'], $matchs);
+        if($tag){
+            $imgname = $this->generateImageName($imginfo['imgname']);
+            $filename = 'frontend/web/upload/'.$imgname.'.png';
+            file_put_contents('frontend/web/upload/'.$imgname.'.png', base64_decode($matchs[1]));
+        }else{
+            $result = [
+                'status' => 0,
+                'message' => '上传失败',
+            ];
+            return json_encode($result);
+        }
+        $imagesize = getimagesize($filename);
+        if($imagesize[0] < $imagesize[1]){
+            $method = 'width';
+        }else{
+            $method = 'height';
+        }
+        $material = new Material();
+        $material->imgurl = $filename;
+        $material->imgname = $imginfo['imgname'];
+        $material->created_at = time();
+        $material->method = json_encode($method);
+        if($material->save()){
+            $result = [
+                'status' => 1,
+                'message' => '上传成功'
+            ];
+            return json_encode($result);
+        }
+    }
+    public function generateImageName($name)
+    {
+        $salt = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        $str = strtoupper(md5(microtime()) . md5($name));
+        $filename = '';
+        for ($i=0; $i < 25; $i++) { 
+            $filename .= $salt[mt_rand(0, strlen($salt)-1)];
+        }
+        for ($i=0; $i < 64; $i++) { 
+            if(ord($str[$i]) < 65){
+                $sed = mt_rand(0, 2);
+                if($sed == 0){
+                    $filename .= $str[$i];
+                }elseif($sed == 1){
+                    $filename .= chr((int) $str[$i] + mt_rand(65, 81));
+                }elseif($sed == 2){
+                    $filename .= chr((int) $str[$i] + mt_rand(97, 113));
+                }
+            }else{
+                $sed = mt_rand(0, 1);
+                if($sed == 0){
+                    $filename .= $str[$i];
+                }elseif($sed == 1){
+                    $filename .= chr(ord($str[$i]) + 32);
+                }
+            }
+        }
+        return $filename;
+    }
+    public function actionGetimage()
+    {
+        $material = Material::find()->select(['imgurl', 'imgname', 'method'])->orderBy('id desc')->asArray()->all();
+        if($material){
+            $result = [
+                'status' => 1,
+                'message' => '获取成功',
+                'material' => $material
+            ];
+        }else{
+            $result = [
+                'status' => 0,
+                'message' => '获取失败'
+            ];
+        }
+        return json_encode($result);
     }
     /**
      * Displays homepage.
