@@ -103,7 +103,7 @@ class SiteController extends Controller
         $material->imgurl = $filename;
         $material->imgname = $imginfo['imgname'];
         $material->created_at = time();
-        $material->method = json_encode($method);
+        $material->method = $method;
         if($material->save()){
             $result = [
                 'status' => 1,

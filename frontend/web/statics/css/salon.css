@@ -362,11 +362,17 @@ span.jueimg_name{
 }
 .jue-imglist > li{
     width: calc(50% - 10px);
-    border: 1px solid red;
+    height: 326px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #E8E8E8;
 }
 .jue-imglist > li > img{
-    width: 100%;
-    border: 1px solid #E8E8E8;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
 }
 
 .jue-checktech{
@@ -380,4 +386,34 @@ span.jueimg_name{
     margin-top: 50px;
     border-radius: 5px;
     cursor: pointer;
+}
+.jue-imglist > li > .hover-mask{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: .7;
+    background-color: #000;
+    color: #fff;
+    font-size: 17px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.jue-imglist > li > .hover-mask > p{
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 0 8px;
+}
+pre{
+    margin-top: 30px;
+    border: 1px solid transparent !important;
+    padding: 0;
+}
+pre > code{
+    text-align: left !important;
 }
