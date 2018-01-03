@@ -31,22 +31,7 @@ echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
                 <span class="juestart-testimg test-btn">开始比对</span>
             </div>
             <pre>
-                <code class="php">
- 第一张图片加载...[完成]
- 第一张图片加载...[完成]
- 正在检测图片属性...[loading]
- 检测完成...[finish]
- 第一张图片涉黄度：0%
- 第二章图片涉黄度：0%
- 第一张图片性感度：99%
- 第二章图片性感度：99%
- 图片合法...[前测成功]
- 正在打印相似度检测结果...[writing]
- result:
-
-     图片相似度：80%
-
-</code>
+                <code class="php"></code>
             </pre>
         </div>
     </div>
@@ -180,5 +165,9 @@ echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
             $('.pop-wrap').remove();
             selectedNum = 0;
         });
+
+        setInterval(function(){
+            $('code').text(' 第一张图片加载...[完成] 第一张图片加载...[完成]正在检测图片属性...[loading]检测完成...[finish]第一张图片涉黄度：0%第二章图片涉黄度：0%第一张图片性感度：99%第二章图片性感度：99%图片合法...[前测成功]正在打印相似度检测结果...[writing]result:图片相似度：80%'
+        }, 600);
     }
 </script>
