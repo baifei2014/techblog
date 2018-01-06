@@ -190,7 +190,7 @@ echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
                 dataType: 'json',
                 success: function(msg){
                     var result = eval(msg);
-                    if(result['porndata'] != null && $result['simidata'] != null){
+                    if(result['porndata'] != null && result['simidata'] != null){
                         var str = new Array(
                             '正在检测图片属性...[waiting]',
                             '检测完成...[finish]',
