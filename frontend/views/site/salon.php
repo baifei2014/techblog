@@ -196,7 +196,6 @@ echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
                     var result = eval(msg);
                     if(result['porndata'] != null && result['simidata'] != null){
                         var str = new Array(
-                            '正在检测图片属性...[waiting]',
                             '检测完成...[finish]',
                             '第一张图片涉黄度：' + result['porndata'][0]['porn_score'] + '%',
                             '第二章图片涉黄度：' + result['porndata'][1]['porn_score'] + '%',
@@ -205,7 +204,7 @@ echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
                             '图片合法...[前测成功]',
                             '正在打印相似度检测结果...[writing]',
                             'result：',
-                            '       图片相似度：' + result['simidata'] + '%',
+                            '       人脸相似度：' + result['simidata'] + '%',
                         );
                         setTimeConsole(str);
                     }
