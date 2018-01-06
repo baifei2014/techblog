@@ -180,6 +180,10 @@ echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
         });
 
         $(document).on('click', '.test-btn', function(){
+            var str = new Array(
+                '正在检测图片属性...[waiting]',
+            );
+            setTimeConsole(str);
             var data = {};
             data.imgurl1 = testImg[0];
             data.imgurl2 = testImg[1];
@@ -201,7 +205,7 @@ echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
                             '图片合法...[前测成功]',
                             '正在打印相似度检测结果...[writing]',
                             'result：',
-                            '       图片相似度：' + result['similarity'] + '%',
+                            '       图片相似度：' + result['simidata'] + '%',
                         );
                         setTimeConsole(str);
                     }
