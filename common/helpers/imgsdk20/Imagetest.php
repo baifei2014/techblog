@@ -42,9 +42,11 @@ class Imagetest
     {
         $result = $this->client->faceCompare(array('url'=>$imgurl1), array('url'=>$imgurl2));
         $result = json_decode($result, true);
-        if($result['http_code'] == 200 && $result['message'] == 'OK'){
+        if($result['http_code'] == 200){
             $similarity = $result['data']['similarity'];
             return $similarity;
+        }else{
+            return 0;
         }
     }
 }
