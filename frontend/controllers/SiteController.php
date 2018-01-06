@@ -91,8 +91,8 @@ class SiteController extends Controller
      */
     public function actionSalon()
     {
-        $articals = ArticalForm::getArticals();
-        return $this->render('salon', ['articals' => $articals]);
+        // $articals = ArticalForm::getArticals();
+        return $this->render('salon');
     }
     /**
      * Displays homepage.
@@ -101,8 +101,8 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        $articals = ArticalForm::getArticals();
-        return $this->render('about', ['articals' => $articals]);
+        // $articals = ArticalForm::getArticals();
+        return $this->render('about');
     }
 
     /**
