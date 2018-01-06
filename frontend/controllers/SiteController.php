@@ -16,6 +16,7 @@ use frontend\models\ArticalForm;
 use yii\data\Pagination;
 use common\models\Artical;
 use common\models\Material;
+use common\helpers\imgsdk20\Imagetest;
 
 /**
  * Site controller
@@ -62,6 +63,20 @@ class SiteController extends Controller
                           ->orderBy('created_at desc')
                           ->all();
         return $this->render('index', ['articals' => $articals, 'pagination' => $pagination]);
+    }
+    public function actionPorntest()
+    {
+        $imgtest = new Imagetest();
+        $postData = Yii::$app->request->post();
+        $imgurl1 = $postData['imgurl1'];
+        $imgurl2 = $postData['imgurl2'];
+        $porndata = $imgtest->pornDetect($imgurl1, $imgurl2);
+        $simidata = $imgtest->faceCompare($imgurl1, $imgurl2);
+        $result = [
+            'porndata' => $porndata,
+            'simidata' => $simidata
+        ];
+        return json_encode($result);
     }
     /**
      * 查看文章

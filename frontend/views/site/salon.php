@@ -15,6 +15,9 @@ echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
         font-size: 15px;
         font-family: 'Consolas';
     }
+    code.php{
+        padding-top: 20px;
+    }
 </style>
 <div class="post-detail">
     <div class="detail-post">
@@ -45,6 +48,7 @@ echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
         var selectedNum = 0;
         var oFReader = new FileReader();
         var oImg;
+        var testImg = new Array();
         var rFilter = /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i;
         if($('.jue-imglists').find('li').length > 0){
             $('.jue-imglists').css('border', '2px solid #32d3c3');
@@ -145,13 +149,22 @@ echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
             if(selectedNum != 2){
                 return;
             }else{
+                $('code').empty();
+                $('.jue-imglist').empty();
+                $('.jue-imglist').css('display', 'flex');
                 $('label.selected img').map(function(){
+                    testImg.push(this.src);
                     var imgstyle = this.style[0] + ':' + '326px';
                     $('.jue-imglist').append('<li><img style="' + imgstyle +'" src="' + this.src +'"><div class="hover-mask"><p>' + this.title +'</p></div></li>');
                 })
                 $('.pop-bd').css('display','none');
                 $('.pop-wrap').remove();
                 selectedNum = 0;
+                var str = new Array(
+                    '第一张图片加载...[success]',
+                    '第二张图片加载...[success]',
+                );
+                setTimeConsole(str);
             }
         })
         $(document).on('mouseover', '.jue-imglist > li', function(){
@@ -166,8 +179,57 @@ echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
             selectedNum = 0;
         });
 
-        setInterval(function(){
-            $('code').text(' 第一张图片加载...[完成] 第一张图片加载...[完成]正在检测图片属性...[loading]检测完成...[finish]第一张图片涉黄度：0%第二章图片涉黄度：0%第一张图片性感度：99%第二章图片性感度：99%图片合法...[前测成功]正在打印相似度检测结果...[writing]result:图片相似度：80%'
-        }, 600);
+        $(document).on('click', '.test-btn', function(){
+            var data = {};
+            data.imgurl1 = testImg[0];
+            data.imgurl2 = testImg[1];
+            $.ajax({
+                url: 'site/porntest',
+                type: 'POST',
+                data: data,
+                dataType: 'json',
+                success: function(msg){
+                    var result = eval(msg);
+                    if(result['porndata'] != null && $result['simidata'] != null){
+                        var str = new Array(
+                            '正在检测图片属性...[waiting]',
+                            '检测完成...[finish]',
+                            '第一张图片涉黄度：' + $result['porndata'][0]['porn_score'] + '%',
+                            '第二章图片涉黄度：' + $result['porndata'][1]['porn_score'] + '%',
+                            '第一张图片性感度：' + $result['porndata'][0]['hot_score'] + '%',
+                            '第二章图片性感度：' + $result['porndata'][1]['hot_score'] + '%',
+                            '图片合法...[前测成功]',
+                            '正在打印相似度检测结果...[writing]',
+                            'result：',
+                            '       图片相似度：' + $result['similarity'] + '%',
+                        );
+                        setTimeConsole(str);
+                    }
+                },
+            });
+        })
+        function setTimeConsole(str){
+            var time_num = 0;
+            for (var i = 0; i < str.length; i++) {
+                if(i > 0){
+                    time_num += 90*str[i-1].length;
+                }
+                var time1 = setTimeout(function(item){
+                    $('code').append('<p></p>');
+                    console.log(item);
+                    var str_item = item.split("");
+                    for (var j = 0; j < str_item.length; j++) {
+                        var time2 = setTimeout(function(item){
+                            var text = $('code p:last-child').text();
+                            $('code p:last-child').text(text + item);
+                        }, 50*j, str_item[j]);
+                        hljs.initHighlightingOnLoad();
+                    }
+                }, time_num, str[i]);
+            }
+            setTimeout(function(){
+                $('.juestart-testimg').css('display', 'block');
+            }, time_num+90*str[str.length-1].length);
+        }
     }
 </script>
