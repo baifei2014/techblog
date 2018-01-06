@@ -14,13 +14,6 @@ a{
     text-decoration: none;
     color: #32d3c3;
 }
-ul {
-    list-style-position: inside;
-    list-style-type:upper-roman;
-}
-ol {
-    list-style-position: inside;
-}
 .wrap {
     min-height: 100%;
     height: auto;
