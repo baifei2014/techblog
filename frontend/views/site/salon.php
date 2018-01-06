@@ -194,14 +194,14 @@ echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
                         var str = new Array(
                             '正在检测图片属性...[waiting]',
                             '检测完成...[finish]',
-                            '第一张图片涉黄度：' + $result['porndata'][0]['porn_score'] + '%',
-                            '第二章图片涉黄度：' + $result['porndata'][1]['porn_score'] + '%',
-                            '第一张图片性感度：' + $result['porndata'][0]['hot_score'] + '%',
-                            '第二章图片性感度：' + $result['porndata'][1]['hot_score'] + '%',
+                            '第一张图片涉黄度：' + result['porndata'][0]['porn_score'] + '%',
+                            '第二章图片涉黄度：' + result['porndata'][1]['porn_score'] + '%',
+                            '第一张图片性感度：' + result['porndata'][0]['hot_score'] + '%',
+                            '第二章图片性感度：' + result['porndata'][1]['hot_score'] + '%',
                             '图片合法...[前测成功]',
                             '正在打印相似度检测结果...[writing]',
                             'result：',
-                            '       图片相似度：' + $result['similarity'] + '%',
+                            '       图片相似度：' + result['similarity'] + '%',
                         );
                         setTimeConsole(str);
                     }
