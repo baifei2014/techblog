@@ -180,6 +180,7 @@ echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
         });
 
         $(document).on('click', '.test-btn', function(){
+            $('.juestart-testimg').css('display', 'none');
             var str = new Array(
                 '正在检测图片属性...[waiting]',
             );
