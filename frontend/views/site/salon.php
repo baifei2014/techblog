@@ -134,6 +134,7 @@ echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
         }
         $('.select-img').click(function(){
             $('.pop-bd').css('display','block');
+            $('.juestart-testimg').css('display', 'none');
             $('.detail-post').append('<div class="pop-wrap"></div>');
             $('.pop-wrap').append('<div class="popwrap-header"></div>');
             $('.pop-wrap').append('<div class="popwrap-inner"></div>');
