@@ -179,6 +179,7 @@ echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
             $('.pop-bd').css('display','none');
             $('.pop-wrap').remove();
             selectedNum = 0;
+            $('.juestart-testimg').css('display', 'block');
         });
 
         $(document).on('click', '.test-btn', function(){
