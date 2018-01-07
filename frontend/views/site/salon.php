@@ -153,6 +153,7 @@ echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
                 $('.jue-imglist').empty();
                 $('.jue-imglist').css('display', 'flex');
                 $('label.selected img').map(function(){
+                    testImg = [];
                     testImg.push(this.src);
                     var imgstyle = this.style[0] + ':' + '326px';
                     $('.jue-imglist').append('<li><img style="' + imgstyle +'" src="' + this.src +'"><div class="hover-mask"><p>' + this.title +'</p></div></li>');
