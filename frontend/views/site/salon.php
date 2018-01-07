@@ -164,7 +164,7 @@ echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
                     '第一张图片加载...[success]',
                     '第二张图片加载...[success]',
                 );
-                setTimeConsole(str);
+                setTimeConsole(str,'load');
             }
         })
         $(document).on('mouseover', '.jue-imglist > li', function(){
@@ -199,20 +199,20 @@ echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
                         var str = new Array(
                             '检测完成...[finish]',
                             '第一张图片涉黄度：' + result['porndata'][0]['porn_score'] + '%',
-                            '第二章图片涉黄度：' + result['porndata'][1]['porn_score'] + '%',
+                            '第二张图片涉黄度：' + result['porndata'][1]['porn_score'] + '%',
                             '第一张图片性感度：' + result['porndata'][0]['hot_score'] + '%',
-                            '第二章图片性感度：' + result['porndata'][1]['hot_score'] + '%',
+                            '第二张图片性感度：' + result['porndata'][1]['hot_score'] + '%',
                             '图片合法...[前测成功]',
                             '正在打印相似度检测结果...[writing]',
                             'result：',
                             '       人脸相似度：' + result['simidata'] + '%',
                         );
-                        setTimeConsole(str);
+                        setTimeConsole(str, 'result');
                     }
                 },
             });
         })
-        function setTimeConsole(str){
+        function setTimeConsole(str,type = null){
             var time_num = 0;
             for (var i = 0; i < str.length; i++) {
                 if(i > 0){
@@ -231,9 +231,11 @@ echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
                     }
                 }, time_num, str[i]);
             }
-            setTimeout(function(){
-                $('.juestart-testimg').css('display', 'block');
-            }, time_num+90*str[str.length-1].length);
+            if(type == 'load' || type == 'result'){
+                setTimeout(function(){
+                    $('.juestart-testimg').css('display', 'block');
+                }, time_num+90*str[str.length-1].length);
+            }
         }
     }
 </script>
