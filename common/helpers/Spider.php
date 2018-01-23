@@ -114,7 +114,9 @@ class Spider
                 $created_time = $this->getCreatedTime($content);
                 $summary = mb_substr(strip_tags($text), 0, mt_rand(50, 100));
                 if($content){
-                    $this->saveArtical($title, $text, $summary, $created_time);
+                    if($this->saveArtical($title, $text, $summary, $created_time)){
+                        $this->saveUrl($url);
+                    }
                 }
             }
         }
@@ -129,14 +131,20 @@ class Spider
             $artical->user_id = mt_rand(1, 3);
             $artical->created_at = $created_time;
             $artical->updated_at = $created_time;
-            $artical->save();
+            if($artical->save()){
+                return true;
+            }
         } catch (yii\db\Exception $e) {
             $errorlog = new Errorlog;
+            if(isset($title)){
+                $errorlog->title = $title;
+            }
             $errorlog->type = $e->errorInfo[0];
             $errorlog->code = $e->errorInfo[1];
             $errorlog->message = $e->errorInfo[2];
             $errorlog->save();
         }
+        return false;
     }
     public function getTitle($content)
     {
@@ -168,8 +176,6 @@ class Spider
         if($crawurl){
             return true;
         }
-
-        $this->saveUrl($url);
 
         return false;
     }
