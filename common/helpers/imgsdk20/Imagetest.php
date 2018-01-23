@@ -2,6 +2,7 @@
 namespace common\helpers\imgsdk20;
 
 require_once __DIR__ . '/index.php';
+use Yii;
 use QcloudImage\CIClient;
 
 /**
@@ -9,16 +10,17 @@ use QcloudImage\CIClient;
 */
 class Imagetest
 {
-    const APPID = '1252376111';
-    const SECRETID = 'AKIDqU3OVM1PeeQxHMtpCLFuJTN1VlpdeUYM';
-    const SECRETKET = 'h193jAON8k9KGyRghT0KPFqCI9j38yYs';
-    const BUCKET = 'baifeitest';
 
     public $client;
 
     public function __construct()
     {
-        $this->client = new CIClient(self::APPID, self::SECRETID, self::SECRETKET, self::BUCKET);
+        $appid = Yii::$app->params['APPID'];
+        $secretid = Yii::$app->params['SECRETID'];
+        $secretket = Yii::$app->params['SECRETKET'];
+        $bucket = Yii::$app->params['BUCKET'];
+
+        $this->client = new CIClient($appid, $secretid, $secretket, $bucket);
         $this->client->setTimeout(30);
     }
     public function pornDetect($imgurl1 = null, $imgurl2 = null)
