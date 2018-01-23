@@ -9,6 +9,6 @@ return yii\helpers\ArrayHelper::merge(
 	    	'isMobile' => false,
 			'isTablet' => false,
 			'isDesktop' => true,
-		],
-    ],
+		]
+    ]
 );
