@@ -24,6 +24,7 @@ echo Html::cssFile('@web/frontend/web/statics/css/about.css');
 
                 <p>还君明珠双泪垂，恨不相逢未嫁时。</p>
             </div>
+            <br>
             <div class="jue-aboutart">
                 <p class="about-title">明月上高楼</p>
                 <p class="about-author">曹植</p>
