@@ -14,6 +14,17 @@ echo Html::cssFile('@web/frontend/web/statics/css/about.css');
         </header>
         <div class="artical-content">
             <div class="jue-aboutart">
+                <p class="about-title">节妇吟·寄东平李司空师道</p>
+                <p class="about-author">张籍</p>
+                <p>君知妾有夫，赠妾双明珠。</p>
+
+                <p>感君缠绵意，系在红罗襦。</p>
+
+                <p>妾家高楼连苑起，良人执戟明光里。</p>
+
+                <p>还君明珠双泪垂，恨不相逢未嫁时。</p>
+            </div>
+            <div class="jue-aboutart">
                 <p class="about-title">明月上高楼</p>
                 <p class="about-author">曹植</p>
                 <p>明月照高楼，流光正徘徊。上有愁思妇，悲叹有余哀。</p>
