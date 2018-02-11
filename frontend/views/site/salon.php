@@ -8,6 +8,7 @@ $this->title = '技术沙龙-爱阅技术团队';
 echo Html::cssFile('@web/frontend/web/statics/css/salon.css');
 echo Html::cssFile('@web/frontend/web/statics/css/tomorrow-night.css');
 echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
+echo Html::cssFile("https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css");
 ?>
 <script>hljs.initHighlightingOnLoad();</script>
 <style type="text/css">
@@ -63,6 +64,9 @@ echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
             }
             updateSelectedStutus();
         })
+        if(!$('pre > code').html()){
+            $('pre').css('display', 'none');
+        }
         $(document).on('click','.upload-btn',function(){
             $('.upload-img').trigger('click');
         })
@@ -179,7 +183,6 @@ echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
             $('.pop-bd').css('display','none');
             $('.pop-wrap').remove();
             selectedNum = 0;
-            $('.juestart-testimg').css('display', 'block');
         });
 
         $(document).on('click', '.test-btn', function(){
@@ -216,6 +219,7 @@ echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
             });
         })
         function setTimeConsole(str,type = null){
+            $('pre').css('display', 'block');
             var time_num = 0;
             for (var i = 0; i < str.length; i++) {
                 if(i > 0){
