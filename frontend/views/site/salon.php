@@ -8,7 +8,6 @@ $this->title = '技术沙龙-爱阅技术团队';
 echo Html::cssFile('@web/frontend/web/statics/css/salon.css');
 echo Html::cssFile('@web/frontend/web/statics/css/tomorrow-night.css');
 echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
-echo Html::cssFile("https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css");
 ?>
 <script>hljs.initHighlightingOnLoad();</script>
 <style type="text/css">
