@@ -23,6 +23,7 @@ echo Html::jsFile('@web/frontend/web/statics/js/highlight.pack.js');
     <div class="detail-post">
         <header class="artical-title">
             <h1 class="title">技术沙龙</h1>
+            <span>智能识别图片性感度和相似度</span>
         </header>
         <div class="artical-content">
             <div class="jue-aboutart">
