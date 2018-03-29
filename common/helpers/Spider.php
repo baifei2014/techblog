@@ -31,7 +31,7 @@ class Spider
 
     public function run()
     {
-        Yii::$app->trigger(self::EVENT_BEFORE_CRAW);
+        // Yii::$app->trigger(self::EVENT_BEFORE_CRAW);
         $this->ch = curl_init();
         $this->curlOpt('');
         $domcontent = curl_exec($this->ch);
@@ -113,7 +113,7 @@ class Spider
                 $text = $this->getText($content);
                 $created_time = $this->getCreatedTime($content);
                 $summary = mb_substr(strip_tags($text), 0, mt_rand(50, 100));
-                if($content){
+                if($content){ 
                     if($this->saveArtical($title, $text, $summary, $created_time)){
                         $this->saveUrl($url);
                     }
