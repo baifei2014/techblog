@@ -6,6 +6,7 @@ use yii\base\Event;
 use common\models\Artical;
 use common\models\Crawurl;
 use common\models\Errorlog;
+
 /**
  * 简单的爬虫程序
  * 此处仅针对美团技术团队博客而言
@@ -28,6 +29,14 @@ class Spider
      * @var array
      */
     public $urls = [];
+    /**
+     * 要保存的文章
+     */
+    public $prearticles = [];
+    /**
+     * 要保存的url
+     */
+    public $preurls = [];
 
     public function run()
     {
@@ -113,27 +122,44 @@ class Spider
                 $text = $this->getText($content);
                 $created_time = $this->getCreatedTime($content);
                 $summary = mb_substr(strip_tags($text), 0, mt_rand(50, 100));
+<<<<<<< HEAD
                 if($content){ 
                     if($this->saveArtical($title, $text, $summary, $created_time)){
                         $this->saveUrl($url);
                     }
+=======
+                if($content){
+                    $article = ['title' => $title, 'text' => $text, 'summary' => $summary, 'created_time' => $created_time];
+                    $this->prearticles[] = $article;
+                    $url = ['url' => $this->host . $url,'created_at' => time()];
+                    $this->preurls[] = $url;
+>>>>>>> a2026fdd0460ba700269f46d506ac183d181b92e
                 }
             }
         }
+        $this->saveArticle();
+        $this->saveurls();
     }
-    public function saveArtical($title, $text, $summary, $created_time)
+    public function saveArtical()
     {
         try {
-            $artical = new Artical;
-            $artical->title = $title;
-            $artical->text = $text;
-            $artical->summary = $summary;
-            $artical->user_id = mt_rand(1, 3);
-            $artical->created_at = $created_time;
-            $artical->updated_at = $created_time;
-            if($artical->save()){
-                return true;
+            Yii::$app->db->createCommand()->batchInsert(Article::tableName(), ['title', 'text', 'summary','created_time'], $this->prearticles)->execute();
+        } catch (yii\db\Exception $e) {
+            $errorlog = new Errorlog;
+            if(isset($title)){
+                $errorlog->title = $title;
             }
+            $errorlog->type = $e->errorInfo[0];
+            $errorlog->code = $e->errorInfo[1];
+            $errorlog->message = $e->errorInfo[2];
+            $errorlog->save();
+        }
+        return false;
+    }
+    public function saveUrls()
+    {
+        try {
+            Yii::$app->db->createCommand()->batchInsert(Crawurl::tableName(), ['url', 'created_at'], $this->preurls)->execute();
         } catch (yii\db\Exception $e) {
             $errorlog = new Errorlog;
             if(isset($title)){
@@ -178,16 +204,5 @@ class Spider
         }
 
         return false;
-    }
-
-    public function saveUrl($url)
-    {
-        if(empty($url)){
-            return;
-        }
-        $crawurl = new Crawurl();
-        $crawurl->url = $this->host . $url;
-        $crawurl->created_at = time();
-        $crawurl->save();
     }
 }

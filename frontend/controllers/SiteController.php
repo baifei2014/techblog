@@ -46,6 +46,11 @@ class SiteController extends Controller
             ],
         ];
     }
+    public function actionTest()
+    {
+        $spider = new \common\helpers\Spider();
+        $spider->run();
+    }
 
     /**
      * Displays homepage.
