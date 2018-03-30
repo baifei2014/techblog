@@ -122,18 +122,11 @@ class Spider
                 $text = $this->getText($content);
                 $created_time = $this->getCreatedTime($content);
                 $summary = mb_substr(strip_tags($text), 0, mt_rand(50, 100));
-<<<<<<< HEAD
-                if($content){ 
-                    if($this->saveArtical($title, $text, $summary, $created_time)){
-                        $this->saveUrl($url);
-                    }
-=======
                 if($content){
                     $article = ['title' => $title, 'text' => $text, 'summary' => $summary, 'created_time' => $created_time];
                     $this->prearticles[] = $article;
                     $url = ['url' => $this->host . $url,'created_at' => time()];
                     $this->preurls[] = $url;
->>>>>>> a2026fdd0460ba700269f46d506ac183d181b92e
                 }
             }
         }
