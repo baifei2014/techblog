@@ -8,11 +8,23 @@ $this->title = '关于我们-爱阅技术团队';
 echo Html::cssFile('@web/frontend/web/statics/css/about.css');
 ?>
 <div class="post-detail">
-    <div class="detail-post">
+    <div class="detail-post" style="margin-bottom: 20px;">
         <header class="artical-title">
             <h1 class="title">关于我们</h1>
         </header>
         <div class="artical-content">
+            <div class="jue-aboutart">
+                <p class="about-title">杂诗</p>
+                <p class="about-author">【魏晋】曹植</p>
+                <p>南国有佳人，荣华若桃李。</p>
+
+                <p>朝游江北岸，夕宿潇湘沚。</p>
+
+                <p>时俗薄朱颜，谁为发皓齿？</p>
+
+                <p>俯仰岁将暮，荣耀难久恃。</p>
+            </div>
+            <br>
             <div class="jue-aboutart">
                 <p class="about-title">节妇吟·寄东平李司空师道</p>
                 <p class="about-author">张籍</p>
