@@ -137,13 +137,13 @@ class Spider
                 }
             }
         }
-        $this->saveArticle();
+        $this->saveArtical();
         $this->saveurls();
     }
     public function saveArtical()
     {
         try {
-            Yii::$app->db->createCommand()->batchInsert(Article::tableName(), ['title', 'text', 'summary','created_time'], $this->prearticles)->execute();
+            Yii::$app->db->createCommand()->batchInsert(Artical::tableName(), ['title', 'text', 'summary','created_time'], $this->prearticles)->execute();
         } catch (yii\db\Exception $e) {
             $errorlog = new Errorlog;
             if(isset($title)){
