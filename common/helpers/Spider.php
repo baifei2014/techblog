@@ -138,7 +138,7 @@ class Spider
     public function saveArtical($article)
     {
         try {
-            $article = new Article();
+            $article = new Artical();
             $article->title = $article['title'];
             $article->text = $article['text'];
             $article->summary = $article['summary'];
