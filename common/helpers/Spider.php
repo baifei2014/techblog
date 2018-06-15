@@ -134,13 +134,13 @@ class Spider
             }
         }
     }
-    public function saveArtical($articleInfo)
+    public function saveArtical($articleInfo = [])
     {
         try {
             $article = new Artical();
-            $article->title = $articleInfo['title'] ?? '题目不见了';
-            $article->text = $articleInfo['text'] ?? '没有什么内容';
-            $article->summary = $articleInfo['summary'] ?? '摘要没了';
+            $article->title = $articleInfo['title'];
+            $article->text = $articleInfo['text'];
+            $article->summary = $articleInfo['summary'];
             $article->user_id = mt_rand(1,3);
             $article->created_at = $articleInfo['created_at'];
             $article->updated_at = $articleInfo['updated_at'];
