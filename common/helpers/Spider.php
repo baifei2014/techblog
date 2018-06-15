@@ -29,18 +29,10 @@ class Spider
      * @var array
      */
     public $urls = [];
-    /**
-     * 要保存的文章
-     */
-    public $prearticles = [];
-    /**
-     * 要保存的url
-     */
-    public $preurls = [];
 
     public function run()
     {
-        // Yii::$app->trigger(self::EVENT_BEFORE_CRAW);
+        Yii::$app->trigger(self::EVENT_BEFORE_CRAW);
         $this->ch = curl_init();
         $this->curlOpt('');
         $domcontent = curl_exec($this->ch);
