@@ -30,7 +30,7 @@ class Errorlog extends \yii\db\ActiveRecord
         return [
             [['code'], 'integer'],
             [['type'], 'string', 'max' => 50],
-            [['message', 'title'], 'string', 'max' => 255],
+            [['message'], 'string', 'max' => 255],
         ];
     }
 
@@ -41,7 +41,6 @@ class Errorlog extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
             'type' => 'Type',
             'code' => 'Code',
             'message' => 'Message',
