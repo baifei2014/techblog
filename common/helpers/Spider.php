@@ -112,8 +112,9 @@ class Spider
     }
     public function crawUrl()
     {
+        $article = [];
         foreach ($this->urls as $key => $url) {
-            if(!$this->isCrawed($url)){
+            // if(!$this->isCrawed($url)){
                 $this->ch = curl_init();
                 $this->curlOpt($url);
                 $content = curl_exec($this->ch);
@@ -123,17 +124,16 @@ class Spider
                 $created_at = $this->getCreatedTime($content);
                 $summary = mb_substr(strip_tags($text), 0, mt_rand(50, 100));
                 if($content){
-                    $article = [];
                     $article['title'] = $title;
                     $article['text'] = $text;
                     $article['created_at'] = $created_at;
                     $article['updated_at'] = $created_at;
                     $article['summary'] = $summary;
-                    $article['title'] = $title;
                     $this->saveArtical($article);
                 }
-            }
+            // }
         }
+        die;
     }
     public function saveArtical($article)
     {
