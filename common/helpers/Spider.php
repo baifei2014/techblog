@@ -153,7 +153,7 @@ class Spider
             $errorlog->save();
         }
     }
-    public function saveUrl()
+    public function saveUrl($url)
     {
         try {
             $crawurl = new Crawurl();
