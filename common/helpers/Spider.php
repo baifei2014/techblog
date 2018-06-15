@@ -120,50 +120,53 @@ class Spider
                 curl_close($this->ch);
                 $title = $this->getTitle($content);
                 $text = $this->getText($content);
-                $created_time = $this->getCreatedTime($content);
+                $created_at = $this->getCreatedTime($content);
                 $summary = mb_substr(strip_tags($text), 0, mt_rand(50, 100));
                 if($content){
-                    $article = ['title' => $title, 'text' => $text, 'summary' => $summary, 'created_time' => $created_time];
-                    $this->prearticles[] = $article;
-                    $url = ['url' => $this->host . $url,'created_at' => time()];
-                    $this->preurls[] = $url;
+                    $article = [];
+                    $article['title'] = $title;
+                    $article['text'] = $text;
+                    $article['created_at'] = $created_at;
+                    $article['updated_at'] = $updated_at;
+                    $article['summary'] = $summary;
+                    $article['title'] = $title;
+                    $this->saveArtical($article);
                 }
             }
         }
-        $this->saveArtical();
-        $this->saveurls();
     }
-    public function saveArtical()
+    public function saveArtical($article)
     {
         try {
-            Yii::$app->db->createCommand()->batchInsert(Artical::tableName(), ['title', 'text', 'summary','created_time'], $this->prearticles)->execute();
+            $article = new Article();
+            $article->title = $article['title'];
+            $article->text = $article['text'];
+            $article->summary = $article['summary'];
+            $article->user_id = mt_rand(1,3);
+            $article->created_at = $article['created_at'];
+            $article->updated_at = $article['updated_at'];
         } catch (yii\db\Exception $e) {
             $errorlog = new Errorlog;
-            if(isset($title)){
-                $errorlog->title = $title;
-            }
             $errorlog->type = $e->errorInfo[0];
             $errorlog->code = $e->errorInfo[1];
             $errorlog->message = $e->errorInfo[2];
             $errorlog->save();
         }
-        return false;
     }
-    public function saveUrls()
+    public function saveUrl()
     {
         try {
-            Yii::$app->db->createCommand()->batchInsert(Crawurl::tableName(), ['url', 'created_at'], $this->preurls)->execute();
+            $crawurl = new Crawurl();
+            $crawurl->url = $url;
+            $crawurl->created_at = time();
+            $crawurl->save();
         } catch (yii\db\Exception $e) {
             $errorlog = new Errorlog;
-            if(isset($title)){
-                $errorlog->title = $title;
-            }
             $errorlog->type = $e->errorInfo[0];
             $errorlog->code = $e->errorInfo[1];
             $errorlog->message = $e->errorInfo[2];
             $errorlog->save();
         }
-        return false;
     }
     public function getTitle($content)
     {
@@ -196,6 +199,6 @@ class Spider
             return true;
         }
 
-        return false;
+        $this->saveUrl($this->host . $url);
     }
 }
