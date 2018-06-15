@@ -51,6 +51,12 @@ class SiteController extends Controller
      *
      * @return mixed
      */
+    public function actionTest()
+    {
+        $spider = new \common\helpers\Spider();
+
+        $spider->run();
+    }
     public function actionIndex()
     {
         // print_r(Yii::$app->params['devicedetect']['isDesktop']);die;
