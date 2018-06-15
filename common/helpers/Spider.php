@@ -145,6 +145,7 @@ class Spider
             $article->user_id = mt_rand(1,3);
             $article->created_at = $article['created_at'];
             $article->updated_at = $article['updated_at'];
+            $article->save();
         } catch (yii\db\Exception $e) {
             $errorlog = new Errorlog;
             $errorlog->type = $e->errorInfo[0];
