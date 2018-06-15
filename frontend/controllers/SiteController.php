@@ -205,11 +205,6 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
-    public function actionTest()
-    {
-        $spider = new \common\helpers\Spider;
-        $spider->run();
-    }
     /**
      * Logs in a user.
      *
