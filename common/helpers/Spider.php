@@ -134,16 +134,16 @@ class Spider
             }
         }
     }
-    public function saveArtical($article)
+    public function saveArtical($articleInfo)
     {
         try {
             $article = new Artical();
-            $article->title = $article['title'] ?? '题目不见了';
-            $article->text = $article['text'];
-            $article->summary = $article['summary'];
+            $article->title = $articleInfo['title'] ?? '题目不见了';
+            $article->text = $articleInfo['text'] ?? '没有什么内容';
+            $article->summary = $articleInfo['summary'] ?? '摘要没了';
             $article->user_id = mt_rand(1,3);
-            $article->created_at = $article['created_at'];
-            $article->updated_at = $article['updated_at'];
+            $article->created_at = $articleInfo['created_at'];
+            $article->updated_at = $articleInfo['updated_at'];
             $article->save();
         } catch (yii\db\Exception $e) {
             $errorlog = new Errorlog;
