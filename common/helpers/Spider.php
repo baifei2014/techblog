@@ -127,7 +127,7 @@ class Spider
                     $article['title'] = $title;
                     $article['text'] = $text;
                     $article['created_at'] = $created_at;
-                    $article['updated_at'] = $updated_at;
+                    $article['updated_at'] = $created_at;
                     $article['summary'] = $summary;
                     $article['title'] = $title;
                     $this->saveArtical($article);
