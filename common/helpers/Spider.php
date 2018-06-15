@@ -114,7 +114,7 @@ class Spider
     {
         $article = [];
         foreach ($this->urls as $key => $url) {
-            // if(!$this->isCrawed($url)){
+            if(!$this->isCrawed($url)){
                 $this->ch = curl_init();
                 $this->curlOpt($url);
                 $content = curl_exec($this->ch);
@@ -131,9 +131,8 @@ class Spider
                     $article['summary'] = $summary;
                     $this->saveArtical($article);
                 }
-            // }
+            }
         }
-        die;
     }
     public function saveArtical($article)
     {
