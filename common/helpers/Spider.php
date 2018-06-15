@@ -138,7 +138,7 @@ class Spider
     {
         try {
             $article = new Artical();
-            $article->title = $article['title'];
+            $article->title = $article['title'] ?? '题目不见了';
             $article->text = $article['text'];
             $article->summary = $article['summary'];
             $article->user_id = mt_rand(1,3);
