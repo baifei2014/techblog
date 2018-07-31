@@ -49,6 +49,6 @@ echo Html::cssFile('@web/frontend/web/statics/css/about.css');
                 <p>愿为西南风，长逝入君怀。君怀良不开，贱妾当何依。</p>
             </div>
         </div>
-        <code>声明：本章所有技术文章均采集自美团点评技术团队博客</code>
+        <code>声明：本章所有技术文章均采集自美团点评技术团队博客^_^</code>
     </div>
 </div>
