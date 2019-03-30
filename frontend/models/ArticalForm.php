@@ -24,11 +24,11 @@ class ArticalForm extends Model{
      */
     public static function getArticalsByDate()
     {
-        $articals = Artical::find()->asArray()->with('author')->orderBy('created_at desc')->all();
+        $articals = Artical::find()->asArray()->with('author')->orderBy('create_time desc')->all();
         $yearList = [];
         $articalList = [];
         foreach ($articals as $key => $artical) {
-            $year = date('Y', $artical['created_at']);
+            $year = date('Y', $artical['create_time']);
             if(!in_array($year, $yearList)){
                 $yearList[] = $year;
                 $articalList[$year] = [];
