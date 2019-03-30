@@ -28,7 +28,7 @@ echo Html::cssFile('frontend/web/statics/css/archieve.css');
                 </header>
                 <div class="post-meta">
                     <span class="post-meta-author"><?php echo $artical['author']['username']; ?></span>
-                    <span class="post-meta-ctime"><?php echo date('Y-m-d', $artical['create_time']) ?></span>
+                    <span class="post-meta-ctime"><?php echo $artical['create_time'] ?></span>
                 </div>
                 <p class="post-abstract"><?php echo $artical['summary']; ?></p>
             </article>
