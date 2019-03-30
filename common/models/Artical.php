@@ -13,8 +13,8 @@ use common\models\User;
  * @property string $summary
  * @property string $text
  * @property integer $user_id
- * @property integer $created_at
- * @property integer $updated_at
+ * @property integer $create_time
+ * @property integer $update_time
  */
 class Artical extends \yii\db\ActiveRecord
 {
@@ -37,7 +37,7 @@ class Artical extends \yii\db\ActiveRecord
     {
         return [
             [['text'], 'string'],
-            [['user_id', 'created_at', 'updated_at'], 'integer'],
+            [['user_id'], 'integer'],
             [['title', 'summary'], 'string', 'max' => 255],
         ];
     }
@@ -52,9 +52,7 @@ class Artical extends \yii\db\ActiveRecord
             'title' => 'Title',
             'summary' => 'Summary',
             'text' => 'Text',
-            'user_id' => 'User ID',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'user_id' => 'User ID'
         ];
     }
 }

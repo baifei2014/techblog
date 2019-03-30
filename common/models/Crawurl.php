@@ -27,8 +27,6 @@ class Crawurl extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['created_at'], 'required'],
-            [['created_at'], 'integer'],
             [['url'], 'string', 'max' => 255],
         ];
     }
@@ -41,7 +39,6 @@ class Crawurl extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'url' => 'Url',
-            'created_at' => 'Created At',
         ];
     }
 }

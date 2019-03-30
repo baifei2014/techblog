@@ -65,7 +65,7 @@ class SiteController extends Controller
         $pagination = new Pagination(['totalCount' => $count]);
         $articals = $query->offset($pagination->offset)
                           ->limit($pagination->limit)
-                          ->orderBy('created_at desc')
+                          ->orderBy('create_time desc')
                           ->all();
         return $this->render('index', ['articals' => $articals, 'pagination' => $pagination]);
     }
