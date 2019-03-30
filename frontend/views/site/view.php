@@ -11,7 +11,7 @@ echo Html::cssFile('frontend/web/statics/css/view.css');
                 <p class="info">
                     <span class="nick"><?php echo $artical['author']['username']; ?></span>
                     <span> ·</span>
-                    <span class="date"><?php echo date('Y-m-d H:i', $artical['create_time']); ?></span>
+                    <span class="date"><?php echo $artical['create_time']; ?></span>
                 </p>
             </header>
             <div class="artical-content"><?php echo $artical['text']; ?></div>

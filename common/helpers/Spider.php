@@ -185,7 +185,7 @@ class Spider
         if($tag){
             $time = str_replace(['年', '月', '日'], '-', $time[1]);
             $time = trim($time, '-');
-            return date('Y-m-d H:i:s', strtotime($time));
+            return date('Y-m-d H:i:s', strtotime($time) + rand(1000, 86400));
         }else{
             return date('Y-m-d H:i:s', mt_rand(time()-1000, time()));
         }
