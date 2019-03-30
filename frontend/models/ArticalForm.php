@@ -28,7 +28,7 @@ class ArticalForm extends Model{
         $yearList = [];
         $articalList = [];
         foreach ($articals as $key => $artical) {
-            $year = date('Y', $artical['create_time']);
+            $year = date('Y', strtotime($artical['create_time']));
             if(!in_array($year, $yearList)){
                 $yearList[] = $year;
                 $articalList[$year] = [];
