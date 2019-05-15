@@ -39,6 +39,7 @@ AppAsset::register($this);
         ['label' => '文章归档', 'url' => ['/site/achieve']],
         ['label' => '关于我们', 'url' => ['/site/about']],
         ['label' => '技术沙龙', 'url' => ['/site/salon']],
+        ['label' => '交流社区', 'url' => ['/site/chat']],
     ];
     echo Nav::widget([
         'options' => ['class' => 'navbar-menu'],
