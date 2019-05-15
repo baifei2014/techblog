@@ -38,8 +38,8 @@
             }
         }
     },
-    "repositories": {
+    "repositories": [{
         "type": "composer",
         "url": "http://packagist.likecho.com"
-    }
+    }]
 }
