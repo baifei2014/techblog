@@ -54,7 +54,7 @@ return [
          ],
          'devicedetect' => [
             'class' => 'common\helpers\DeviceDetect'
-        ],
+        ]
     ],
     'bootstrap' => ['devicedetect'],
     'params' => $params,
