@@ -50,17 +50,6 @@ class SiteController extends Controller
     public function actionIndex()
     {
         // print_r(Yii::$app->params['devicedetect']['isDesktop']);die;
-        $data = [
-            'clientIp' => Yii::$app->request->getUserIP(),
-            'accessTime' => date('Y-m-d H:i:s')
-        ];
-        Yii::$app->Amqp->publish(
-            'webAccessRecord',
-            json_encode($data),
-            ['exchange' => 'amq.topic', 'exchange_type' => 'topic', 'queue' => 'webAccessRecord']
-        );
-        die;
-
         $query = Artical::find();
         $count = $query->count();
         $pagination = new Pagination(['totalCount' => $count]);

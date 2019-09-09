@@ -24,7 +24,6 @@ class OfflineController extends Controller
         	$accessLog->save();
 
             $resolver->acknowledge($message);
-            echo "哈哈";
         }, [
             'timeout' => 3,
             'vhost'   => 'com.likecho.www',
@@ -33,11 +32,6 @@ class OfflineController extends Controller
             'exchange_type' => 'direct'
         ]);
         return 0;
-    }
-
-    public function actionList()
-    {
-    	echo "你好\n";
     }
 
     private function getIpInfo($ip)
