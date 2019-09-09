@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2650bcc442313edc921a3d7c7af4f9bd",
+    "content-hash": "6df67c8988055bc6e1588e7a9050af07",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -335,17 +335,17 @@
         },
         {
             "name": "longhao/yii2-amqp",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/baifei2014/yii2-amqp.git",
-                "reference": "a8939b7e1680a8b8460eabaeaeeb701d3c043033"
+                "reference": "20d3a8d6e7f2362e24b9f348ce0c229a0c8333ce"
             },
             "dist": {
                 "type": "tar",
-                "url": "http://packagist.likecho.com/dist/longhao/yii2-amqp/longhao-yii2-amqp-a8939b7e1680a8b8460eabaeaeeb701d3c043033-zip-e0b424.tar",
-                "reference": "a8939b7e1680a8b8460eabaeaeeb701d3c043033",
-                "shasum": "5a7d43efbc65ffc03141faa401c41fd0d1ccd662"
+                "url": "http://packagist.likecho.com/dist/longhao/yii2-amqp/longhao-yii2-amqp-20d3a8d6e7f2362e24b9f348ce0c229a0c8333ce-zip-aac32a.tar",
+                "reference": "20d3a8d6e7f2362e24b9f348ce0c229a0c8333ce",
+                "shasum": "e4d28299b9ffcd74fa0a67e8f044a0f3e09529d1"
             },
             "require": {
                 "php": ">=7.0",
@@ -372,10 +372,10 @@
                 "rabbitmq"
             ],
             "support": {
-                "source": "https://github.com/baifei2014/yii2-amqp/tree/1.0.3",
+                "source": "https://github.com/baifei2014/yii2-amqp/tree/1.0.4",
                 "issues": "https://github.com/baifei2014/yii2-amqp/issues"
             },
-            "time": "2019-09-04T08:26:38+00:00"
+            "time": "2019-09-09T11:12:47+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
@@ -1435,49 +1435,6 @@
                 "url"
             ],
             "time": "2019-07-01T23:21:34+00:00"
-        },
-        {
-            "name": "long/yii2-amqp",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/baifei2014/yii2-amqp.git",
-                "reference": "cf6da1045ef48e0825183f217ef799df96ac894d"
-            },
-            "dist": {
-                "type": "tar",
-                "url": "http://packagist.likecho.com/dist/long/yii2-amqp/long-yii2-amqp-cf6da1045ef48e0825183f217ef799df96ac894d-zip-59f36d.tar",
-                "reference": "cf6da1045ef48e0825183f217ef799df96ac894d",
-                "shasum": "3c6214e1f0df16ebf9dc577f18dfc204f1d9ed89"
-            },
-            "require": {
-                "php": ">=7.0",
-                "php-amqplib/php-amqplib": "2.*",
-                "yiisoft/yii2": "~2.0.18"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Long\\Amqp\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "AMQP wrapper for Yii2 to publish and consume messages",
-            "keywords": [
-                "Yii",
-                "Yii2",
-                "amqp",
-                "package",
-                "queue",
-                "rabbitmq"
-            ],
-            "support": {
-                "source": "https://github.com/baifei2014/yii2-amqp/tree/master",
-                "issues": "https://github.com/baifei2014/yii2-amqp/issues"
-            },
-            "time": "2019-09-02T11:25:55+00:00"
         },
         {
             "name": "myclabs/deep-copy",
