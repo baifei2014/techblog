@@ -1,0 +1,26 @@
+.wrap{
+    background-color: #f4f4f4;
+}
+@media (min-width: 1080px) {
+    .crawl-wrap{
+        width: 700px;
+        margin: 0 auto;
+    }
+    .crawl-container{
+        margin-top: 50px;
+        margin-bottom: 10px;
+    }
+    .crawl-title {
+    	margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .crawl-wrap{
+        margin: 0 auto;
+    }
+    .crawl-title {
+    	margin-top: 12px;
+    	margin-bottom: 14px;
+    }
+}
