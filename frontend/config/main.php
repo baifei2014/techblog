@@ -14,6 +14,10 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+                'text/json' => 'yii\web\JsonParser',
+            ]
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -50,6 +54,7 @@ return [
                 '/salon' => 'site/salon',
                 '/about' => 'site/about',
                 '/achieve' => 'site/achieve',
+                '/crawl' => 'site/crawl',
              ],
          ],
          'devicedetect' => [

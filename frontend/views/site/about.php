@@ -48,6 +48,23 @@ echo Html::cssFile('@web/frontend/web/statics/css/about.css');
 
                 <p>愿为西南风，长逝入君怀。君怀良不开，贱妾当何依。</p>
             </div>
+            <div class="jue-aboutart">
+                <p class="about-title">夜雨</p>
+                <p class="about-author">白居易</p>
+                <p>我有所念人，隔在远远乡。</p>
+
+                <p>我有所感事，结在深深肠。</p>
+
+                <p>乡远不得去，无处不瞻望。</p>
+
+                <p>肠深解不得，无夕不思量。</p>
+
+                <p>况此残灯夜，独宿在空堂。</p>
+
+                <p>秋天殊未晓，风雨正苍苍。</p>
+
+                <p>不学头陀法，前心安可忘。</p>
+            </div>
         </div>
         <code>声明：本章所有技术文章均采集自美团点评技术团队博客^_^</code>
     </div>

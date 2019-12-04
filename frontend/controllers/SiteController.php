@@ -17,6 +17,7 @@ use yii\data\Pagination;
 use common\models\Artical;
 use common\models\Material;
 use common\helpers\imgsdk20\Imagetest;
+use common\models\ScheduleModel;
 
 /**
  * Site controller
@@ -199,6 +200,11 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionCrawl()
+    {
+        return $this->render('crawl');
     }
 
     /**

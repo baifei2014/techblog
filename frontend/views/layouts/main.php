@@ -40,6 +40,7 @@ AppAsset::register($this);
         ['label' => '关于我们', 'url' => ['/site/about']],
         ['label' => '技术沙龙', 'url' => ['/site/salon']],
         ['label' => '交流社区', 'url' => ['/site/chat']],
+        ['label' => '图片下载', 'url' => ['/site/crawl']],
     ];
     echo Nav::widget([
         'options' => ['class' => 'navbar-menu'],
@@ -68,9 +69,6 @@ AppAsset::register($this);
     </div>
 </div>
 
-<footer class="footer">
-   <div class="ft"><span>&copy; <?= date('Y') ?> 美团点评技术团队</span><br><span>All rights resiverd</span></div>
-</footer>
 
 <?php $this->endBody() ?>
 </body>
