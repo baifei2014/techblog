@@ -59,11 +59,14 @@ return [
          ],
          'devicedetect' => [
             'class' => 'common\helpers\DeviceDetect'
-        ]
+		],
     ],
     'bootstrap' => ['devicedetect'],
     'params' => $params,
     'as crawBehavior' => [
         'class' => 'frontend\components\CrawBehavior'
     ],
+	'aliases' => [
+		'@bower' => '@vendor/yidas/yii2-bower-asset/bower',
+	],
 ];

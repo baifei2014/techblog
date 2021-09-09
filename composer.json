@@ -19,7 +19,8 @@
         "longhao/yii2-amqp": "1.0.4",
         "mobiledetect/mobiledetectlib": "^2.8",
         "php-amqplib/php-amqplib": "^2.10.0",
-        "yiisoft/yii2": "~2.0.18",
+        "yidas/yii2-bower-asset": "~2.0.5",
+        "yiisoft/yii2": "2.0.x-dev",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-redis": "^2.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0"
@@ -43,9 +44,5 @@
         "sort-packages": true,
         "secure-http": false,
         "optimize-autoloader": true
-    },
-    "repositories": [{
-        "type": "composer",
-        "url": "https://packagist.likecho.com"
-    }]
+    }
 }

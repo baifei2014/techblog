@@ -27,9 +27,9 @@ class SiteController extends Controller
     public function behaviors()
     {
         return [
-            'accessBeavior' => [
-                'class' => 'frontend\components\AccessBehavior'
-            ],
+        //    'accessBeavior' => [
+        //        'class' => 'frontend\components\AccessBehavior'
+       //     ],
         ];
     }
     /**
